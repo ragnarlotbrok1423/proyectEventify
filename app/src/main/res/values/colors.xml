@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  Base Colors based of the app icon -->
+    <color name="neon_gray">#828282</color>
+    <color name="black">#FF000000</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="snow">#F6F2F3</color>
+
+
+    <color name="pale_gold">#E5B978</color>
+    <color name="earth_yellow">#E7AB62</color>
+
+    <color name="candy_pink">#E5737D</color>
+    <color name="deep_ruby">#903456</color>
+
+    <color name="air_force_blue">#5E8EB6</color>
+    <color name="dodger_blue">#1881DF</color>
+    <color name="queen_blue">#4167A6</color>
+    <color name="blue_darker">#060731</color>
+
+    <color name="green_darker">#003C1A</color>
+
+    <color name="purple_darker">#321F46</color>
+
+    <!--  Card  -->
+    <color name="fragrant_satchel">#A698B4</color>
+
+    <!--  Navigation Bar, Icons  -->
+    <color name="green_dark">#015B28</color>
+    <color name="purple_dark">#4d306a</color>
+
+    <!-- Facultades -->
+    <color name="green_light">#C7E99C</color>
+    <color name="pink_light">#F9DABE</color>
+    <color name="purple_light">#C3A6C4</color>
+    <color name="gray_light">#B9B0B2</color>
+    <color name="yellow_light">#FAEFA5</color>
+    <color name="blue_light">#BEF1F9</color>
+
+
+</resources>

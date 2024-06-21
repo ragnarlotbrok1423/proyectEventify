@@ -1,0 +1,20 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Eventify" parent="Theme.Material3.DayNight.NoActionBar">
+        <!--Primary Brand Color-->
+        <item name="colorPrimary">@color/purple_dark</item>
+        <item name="colorPrimaryVariant">@color/purple_darker</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!--Secondary Brand Color-->
+        <item name="colorSecondary">@color/green_dark</item>
+        <item name="colorSecondaryVariant">@color/green_darker</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!--Text Color-->
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/gray_light</item>
+        <!--Text Font-->
+        <item name="android:fontFamily">@font/luxie_rounded</item>
+        <!--Background Color-->
+        <item name="android:colorBackground">@color/black</item>
+    </style>
+</resources>

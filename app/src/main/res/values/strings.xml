@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Eventify</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_sign_up">SignUp</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Signin</string>
+    <string name="action_sign_in_short">Signin</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Notavalidusername</string>
+    <string name="invalid_password">Passwordmustbe>5characters</string>
+    <string name="login_failed">"Loginfailed"</string>
+    <string name="main_screen_text">Nosabescuandohayserviciossocailes?\n&#218;neteaesteappparaayudarlos</string>
+
+</resources>
