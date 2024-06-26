@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/CE_NamePhoto"
+    android:layout_width="340dp"
+    android:layout_height="204dp"
+    android:background="@drawable/layout_ce_namephoto">
+
+    <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottom_layer"
+        android:layout_width="327dp"
+    android:layout_height="59dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/ce_photoname_layer_template2">
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/delete_imagen"
+            android:layout_width="82dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+
+            android:background="@drawable/delete_botton"
+            >
+            <TextView
+                android:id="@+id/eliminar"
+                android:layout_width="99dp"
+                android:layout_height="21dp"
+                android:text="@string/eliminar"
+                android:textAppearance="@style/eliminar"
+                android:lineSpacingExtra="4sp"
+                android:translationY="7sp"
+                android:gravity="center_horizontal|top"
+                />
+        </RelativeLayout>
+
+
+
+            <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/edit_imagen"
+            android:layout_width="157dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="160dp"
+            android:background="@drawable/edit_botton"
+            >
+                <TextView
+                    android:id="@+id/editar_imag"
+                    android:layout_width="136dp"
+                    android:layout_height="21dp"
+                    android:text="@string/editar_imag"
+                    android:textAppearance="@style/editar_imag"
+                    android:lineSpacingExtra="4sp"
+                    android:translationY="7sp"
+                    android:gravity="center_horizontal|top"
+                    />
+            </RelativeLayout>
+
+
+
+
+
+            </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/middle_layer"
+        android:layout_width="327dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/ce_photoname_layer_template">
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/state_layer"
+            android:layout_width="210dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="100dp"
+            android:background="@drawable/textfield_name"
+            >
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/text_field_lao"
+                android:layout_width="210dp"
+                android:layout_height="56dp"
+                >
+                <RelativeLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/text_field"
+                    android:layout_width="210dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/background_textfield"
+                    >
+                    <RelativeLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/label_text"
+                        android:layout_width="160dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="10dp"
+                        >
+                        <TextView
+                            android:id="@+id/pyme_text"
+                            android:layout_width="160dp"
+                            android:layout_height="16dp"
+                            android:text="@string/pyme_text"
+                            android:textAppearance="@style/pyme_text"
+                            android:lineSpacingExtra="2sp"
+                            android:translationY="-0.97sp"
+                            android:gravity="top"
+                            />
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/input_field"
+                        android:layout_width="45dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        >
+                        <TextView
+                            android:id="@+id/input_textfield"
+                            android:layout_width="45dp"
+                            android:layout_height="24dp"
+                            android:text="@string/input_textfield"
+                            android:textAppearance="@style/input_textfield"
+                            android:lineSpacingExtra="5sp"
+                            android:gravity="center_vertical"
+                            />
+
+                    </RelativeLayout>
+                </RelativeLayout>
+                <View
+                    android:id="@+id/active_indi"
+                    android:layout_width="210dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/active_indi"
+                    />
+
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+
+
+            <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/imagen_editing"
+            android:layout_width="82dp"
+            android:layout_height="84dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/imagen_sending"
+            />
+
+
+
+
+    </RelativeLayout>
+</RelativeLayout>

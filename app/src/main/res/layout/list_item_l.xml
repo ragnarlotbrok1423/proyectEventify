@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/list_item_l"
+android:layout_width="342dp"
+android:layout_height="108dp"
+android:background="@drawable/list_item_l"
+    >
+
+        <RelativeLayout
+        android:id="@+id/Layer_list_text"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="-3dp"
+        android:layout_marginRight="-1dp"
+        android:layout_marginBottom="3dp">
+
+        <LinearLayout
+            android:layout_width="342dp"
+            android:layout_height="108dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/list_item_l">
+
+
+            <RelativeLayout
+                android:id="@+id/building_bl"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/building_bl"
+                android:scr="@drawable/rounded_corner_background" />
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/content"
+                android:layout_width="214dp"
+                android:layout_height="84dp"
+                android:background="@drawable/rounded_corner_background"
+                android:clipToOutline="true">
+
+                <TextView
+                    android:id="@+id/headline"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:gravity="center_vertical"
+                    android:lineSpacingExtra="5sp"
+                    android:text="@string/headline"
+                    android:textAppearance="@style/headline" />
+
+                <TextView
+                    android:id="@+id/supporting_"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@id/headline"
+                    android:gravity="top"
+                    android:lineSpacingExtra="4sp"
+                    android:text="@string/supporting_"
+                    android:textAppearance="@style/supporting_"
+                    android:translationY="-1.8sp" />
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/trailing_su"
+                android:layout_width="27dp"
+                android:layout_height="16dp"
+                android:gravity="right|top"
+                android:lineSpacingExtra="3sp"
+                android:text="@string/trailing_su"
+                android:textAppearance="@style/trailing_su"
+                android:translationY="-1.55sp" />
+
+
+            <RelativeLayout
+                android:id="@+id/arrow_right"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@drawable/arrow_right" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+    </RelativeLayout>

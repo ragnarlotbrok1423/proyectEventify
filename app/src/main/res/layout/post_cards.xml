@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+<LinearLayout
+    android:layout_width="378dp"
+    android:layout_height="283dp"
+    android:layout_marginTop="-26dp"
+    android:background="#AEADC5"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:translationZ="-1dp">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="217dp"
+        android:layout_marginTop="20dp"
+        android:columnCount="3"
+        android:padding="8dp"
+        android:rowCount="2">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            android:background="@drawable/circular_border"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            android:background="@drawable/circular_border"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            android:background="@drawable/circular_border"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            android:background="@drawable/circular_border"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            android:background="@drawable/circular_border"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            android:background="@drawable/circular_border"
+            android:scaleType="centerCrop" />
+
+    </GridLayout>
+</LinearLayout>
+</LinearLayout>

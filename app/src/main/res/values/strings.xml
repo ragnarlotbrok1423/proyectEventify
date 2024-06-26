@@ -11,5 +11,20 @@
     <string name="invalid_password">Passwordmustbe>5characters</string>
     <string name="login_failed">"Loginfailed"</string>
     <string name="main_screen_text">Nosabescuandohayserviciossocailes?\n&#218;neteaesteappparaayudarlos</string>
+    <string name="inicio">Inicio</string>
+    <string name="comunidades">Comunidades</string>
+    <string name="create_community">Crear Comunidades</string>
+    <string name="create_pyme">Añadir Emprendimiento</string>
+    <string name="label_text">Volver</string>
+    <string name="headline">Comunidad 1</string>
+    <string name="supporting_">Comunidad para trata a mano dura cualquiera negligencia dentro de la area de 200m</string>
+    <string name="trailing_su">100+</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="editar_imag">Editar imagen</string>
+    <string name="pyme_text">Nombre Empredimiento</string>
+    <string name="input_textfield">Name</string>
+    descripcion_text
+    <string name="descripcion_text">Descripcion de</string>
+    <string name="descripcion_field">Descripcion</string>
 
 </resources>

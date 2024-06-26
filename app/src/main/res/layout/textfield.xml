@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/state_layer"
+    android:layout_width="340dp"
+    android:layout_height="204dp"
+
+    android:background="@drawable/textfield_name"
+    >
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/text_field_lao"
+        android:layout_width="340dp"
+        android:layout_height="204dp"
+        >
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/textfield_m"
+            android:layout_width="340dp"
+            android:layout_height="204dp"
+            android:background="@drawable/background_textfield_m"
+            >
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/label_text"
+                android:layout_width="160dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                >
+                <TextView
+                    android:id="@+id/pyme_text"
+                    android:layout_width="160dp"
+                    android:layout_height="16dp"
+                    android:text="@string/descripcion_text"
+                    android:textAppearance="@style/pyme_text"
+                    android:lineSpacingExtra="2sp"
+                    android:translationY="-0.97sp"
+                    android:gravity="top"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/input_field"
+                android:layout_width="45dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                >
+                <TextView
+                    android:id="@+id/input_textfield"
+                    android:layout_width="45dp"
+                    android:layout_height="24dp"
+                    android:text="@string/descripcion_field"
+                    android:textAppearance="@style/input_textfield"
+                    android:lineSpacingExtra="5sp"
+                    android:gravity="center_vertical"
+                    />
+
+            </RelativeLayout>
+        </RelativeLayout>
+        <View
+            android:id="@+id/active_indi"
+            android:layout_width="210dp"
+            android:layout_height="0dp"
+            android:background="@drawable/active_indi"
+            />
+
+
+
+
+    </RelativeLayout>
+</RelativeLayout>

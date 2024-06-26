@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/comunidad"
+    android:layout_width="390dp"
+    android:layout_height="844dp"
+    android:clipToOutline="true"
+    android:background="#FFFFFF">
+    <include layout="@layout/navbar" />
+    <include layout="@layout/subtittle_back" />
+
+
+    <RelativeLayout
+        android:id="@+id/community_card"
+        android:layout_width="362dp"
+        android:layout_height="659dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="159dp"
+        android:background="@drawable/community_card_layer"
+        >
+        <include
+            layout="@layout/list_item_l"
+            android:layout_width="342dp"
+            android:layout_height="108dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            />
+        <include
+            layout="@layout/list_item_l"
+            android:layout_width="342dp"
+            android:layout_height="108dp"
+            android:layout_marginTop="130dp"
+            android:layout_marginLeft="10dp"
+            />
+
+    </RelativeLayout>
+</RelativeLayout>
+
+
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"  android:layout_height="match_parent">  <View  android:id="@+id/rectangle_2"
+    android:layout_width="390dp"
+    android:layout_height="67dp"
+    android:layout_alignParentBottom="true"  android:background="@drawable/down_navbar_layer" />
+
+    <View
+        android:id="@+id/ellipse_12"
+        android:layout_width="65dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="14dp"
+        android:layout_marginBottom="5dp"
+        android:background="#FFFFFF" />
+
+    <View
+        android:id="@+id/ellipse_13"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="104dp"
+        android:layout_marginBottom="10dp"
+        android:background="#FFFFFF" />
+
+    <View
+        android:id="@+id/ellipse_14"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_alignParentRight="true"  android:layout_alignParentBottom="true"  android.layout_marginBottom="20dp"        android:background="#FFFFFF" />
+
+    <View
+        android:id="@+id/ellipse_15"
+        android.layout_marginBottom="20dp"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="103dp"
+        android:layout_marginBottom="-2dp"
+        android:background="#FFFFFF" />
+
+</RelativeLayout>

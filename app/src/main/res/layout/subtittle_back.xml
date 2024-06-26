@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/state_layer"
+    android:layout_width="363dp"
+    android:layout_height="52dp"
+    android:layout_alignParentStart="true"
+    android:layout_marginStart="12dp"
+    android:layout_alignParentTop="true"
+    android:layout_marginTop="97dp"
+    android:background="@drawable/subtittle_back_layer">
+
+
+    <View
+        android:id="@+id/icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/icopositive" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="99dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/button"
+        android:clipToOutline="true"
+        android:translationY="5sp" />
+
+    <TextView
+        android:id="@+id/label_text"
+        android:layout_width="51dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/label_text"
+        android:textAppearance="@style/back_button" />
+
+    <TextView
+        android:id="@+id/comunidades2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="12dp"
+        android:layout_toRightOf="@id/button"
+        android:gravity="center_horizontal|top"
+        android:lineSpacingExtra="5sp"
+        android:text="@string/comunidades"
+        android:textAppearance="@style/subtitle"
+        android:translationY="-2.28sp" />
+
+    <RelativeLayout
+        android:id="@+id/button_create_community"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="11dp"
+        android:background="@drawable/vector_button_create">
+
+        <View
+            android:id="@+id/comunidadico"
+            android:layout_width="21dp"
+            android:layout_height="18dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="7dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/icocommunity" />
+
+        <View
+            android:id="@+id/positive"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="26dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/icopositive" />
+
+
+    </RelativeLayout>
+
+    </RelativeLayout>
+
