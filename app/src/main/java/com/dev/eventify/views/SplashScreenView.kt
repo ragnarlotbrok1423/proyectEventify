@@ -1,4 +1,4 @@
-package com.example.eventify.views
+package com.dev.eventify.views
 
 import android.content.Intent
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -19,13 +19,13 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.eventify.MainActivity
-import com.example.eventify.R
-import com.example.eventify.components.GifImage
-import com.example.eventify.components.GradientTitleText
-import com.example.eventify.ui.themes.EventifyTheme
-import com.example.eventify.ui.themes.GRA_VER_BLUE_PURPLE
-import com.example.eventify.ui.themes.GRA_VER_PURPLE_WHITE
+import com.dev.eventify.MainActivity
+import com.dev.eventify.R
+import com.dev.eventify.components.GifImage
+import com.dev.eventify.components.GradientTitleText
+import com.dev.eventify.ui.themes.EventifyTheme
+import com.dev.eventify.ui.themes.GRA_VER_BLUE_PURPLE
+import com.dev.eventify.ui.themes.GRA_VER_PURPLE_WHITE
 import kotlinx.coroutines.delay
 
 @Composable
@@ -69,7 +69,8 @@ fun SplashScreenView(){
             ){
                 GradientTitleText(
                     text = stringResource(id = R.string.app_name),
-                    gradient = GRA_VER_PURPLE_WHITE)
+                    gradient = GRA_VER_PURPLE_WHITE
+                )
             }
         }
     }

@@ -5,22 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.example.eventify.ui.themes.EventifyTheme
-import com.example.eventify.views.OnboardingScreenView
-import com.example.eventify.views.SplashScreenView
-import android.os.Handler
-import android.os.Looper
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.core.content.ContextCompat.startActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import kotlinx.coroutines.delay
+import com.dev.eventify.ui.themes.EventifyTheme
+import com.dev.eventify.views.SplashScreenView
+import com.dev.eventify.MainActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreenActivity: ComponentActivity() {

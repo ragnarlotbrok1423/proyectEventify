@@ -2,24 +2,28 @@
     <!--Base application theme.-->
     <style name="Base.Theme.Eventify" parent="Theme.Material3.DayNight.NoActionBar">
         <!--Primary Brand Color-->
-        <item name="colorPrimary">@color/air_force_blue</item>
-        <item name="colorPrimaryVariant">@color/queen_blue</item>
+        <item name="colorPrimary">@color/purple_darker</item>
+        <item name="colorPrimaryVariant">@color/purple_medium</item>
         <item name="colorOnPrimary">@color/black</item>
         <!--Secondary Brand Color-->
-        <item name="colorSecondary">@color/pale_gold</item>
-        <item name="colorSecondaryVariant">@color/earth_yellow</item>
+        <item name="colorSecondary">@color/air_force_blue</item>
+        <item name="colorSecondaryVariant">@color/queen_blue</item>
         <item name="colorOnSecondary">@color/black</item>
         <!--Text Color-->
         <item name="android:textColorPrimary">@color/black</item>
         <item name="android:textColorSecondary">@color/neon_gray</item>
         <!--Text Font-->
-        <!--<itemname="android:textViewStyle">@font/luxie_rounded</item>-->
-        <!--<itemname="android:textAppearance">@font/luxie_rounded</item>-->
         <item name="android:fontFamily">@font/luxie_rounded</item>
         <!--Background Color-->
         <item name="android:colorBackground">@color/snow</item>
 
+        <!-- Disable Splash Screen-->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowSplashScreenBackground">@color/blue_rose</item>
+
     </style>
+
+    <style name="Theme.Eventify" parent="Base.Theme.Eventify" />
 
     <!--Text Sizes-->
     <style name="app_title" parent="Base.Theme.Eventify">

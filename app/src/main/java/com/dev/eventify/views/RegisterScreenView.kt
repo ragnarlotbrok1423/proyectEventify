@@ -1,4 +1,4 @@
-package com.example.eventify.views
+package com.dev.eventify.views
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
@@ -20,27 +19,25 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.eventify.R
-import com.example.eventify.components.CustomContextText
-import com.example.eventify.components.GraExposedDropDownMenu
-import com.example.eventify.components.GradientButton
-import com.example.eventify.components.GradientPasswordField
-import com.example.eventify.components.GradientPhoneTextField
-import com.example.eventify.components.GradientTextFieldWithIcons
-import com.example.eventify.components.ImageMaxWidth
-import com.example.eventify.components.LargeSpace
-import com.example.eventify.components.MaxWidthText
-import com.example.eventify.components.MediumSpace
-import com.example.eventify.components.NavigationText
-import com.example.eventify.components.SmallSpace
-import com.example.eventify.ui.themes.EventifyTheme
-import com.example.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
+import com.dev.eventify.R
+import com.dev.eventify.components.CustomContextText
+import com.dev.eventify.components.GraExposedDropDownMenu
+import com.dev.eventify.components.GradientButton
+import com.dev.eventify.components.GradientPasswordField
+import com.dev.eventify.components.GradientPhoneTextField
+import com.dev.eventify.components.GradientTextFieldWithIcons
+import com.dev.eventify.components.ImageMaxWidth
+import com.dev.eventify.components.MaxWidthText
+import com.dev.eventify.components.MediumSpace
+import com.dev.eventify.components.NavigationText
+import com.dev.eventify.components.SmallSpace
+import com.dev.eventify.ui.themes.EventifyTheme
+import com.dev.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
 
 @Composable
 fun RegisterScreenView(){

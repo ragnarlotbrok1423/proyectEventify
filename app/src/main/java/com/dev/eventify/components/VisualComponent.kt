@@ -1,8 +1,7 @@
-package com.example.eventify.components
+package com.dev.eventify.components
 
 import android.os.Build.VERSION.SDK_INT
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
@@ -19,8 +18,8 @@ import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
 import coil.request.ImageRequest
 import coil.size.Size
-import com.example.eventify.R
-import com.example.eventify.ui.themes.EventifyTheme
+import com.dev.eventify.R
+import com.dev.eventify.ui.themes.EventifyTheme
 
 @Composable
 fun GifImage(

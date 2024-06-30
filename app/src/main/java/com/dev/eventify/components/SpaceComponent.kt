@@ -1,11 +1,11 @@
-package com.example.eventify.components
+package com.dev.eventify.components
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
-import com.example.eventify.R
+import com.dev.eventify.R
 
 @Composable
 fun SmallSpace(){

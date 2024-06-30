@@ -1,4 +1,4 @@
-package com.example.eventify.components
+package com.dev.eventify.components
 
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed

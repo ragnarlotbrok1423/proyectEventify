@@ -1,4 +1,4 @@
-package com.example.eventify.components
+package com.dev.eventify.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -8,7 +8,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.Lock
 import androidx.compose.material.icons.rounded.Phone
@@ -27,32 +26,29 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.eventify.R
-import com.example.eventify.models.facultyModel
-import com.example.eventify.ui.themes.BLACK
-import com.example.eventify.ui.themes.DARKER_BLUE
-import com.example.eventify.ui.themes.EventifyTheme
-import com.example.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
-import com.example.eventify.ui.themes.GRA_HOR_BLUE_PURPLE
-import com.example.eventify.ui.themes.Shape
+import com.dev.eventify.R
+import com.dev.eventify.models.facultyModel
+import com.dev.eventify.ui.themes.BLACK
+import com.dev.eventify.ui.themes.DARKER_BLUE
+import com.dev.eventify.ui.themes.EventifyTheme
+import com.dev.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
+import com.dev.eventify.ui.themes.GRA_HOR_BLUE_PURPLE
+import com.dev.eventify.ui.themes.Shape
 
 
 ////////////////////
@@ -210,7 +206,8 @@ fun GradientPasswordField(
             unfocusedIndicatorColor = Color.Transparent,
             errorIndicatorColor = Color.Transparent,
             unfocusedLabelColor = colorResource(R.color.purple_darker),
-            focusedLabelColor = BLACK),
+            focusedLabelColor = BLACK
+        ),
         shape = Shape.small
         )
 }
@@ -259,7 +256,8 @@ fun GradientPhoneTextField() {
             unfocusedIndicatorColor = Color.Transparent,
             errorIndicatorColor = Color.Transparent,
             unfocusedLabelColor = colorResource(R.color.purple_darker),
-            focusedLabelColor = BLACK),
+            focusedLabelColor = BLACK
+        ),
         shape = Shape.small
     )
 }

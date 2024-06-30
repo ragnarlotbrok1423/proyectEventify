@@ -1,4 +1,4 @@
-package com.example.eventify.components
+package com.dev.eventify.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,9 +15,9 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.eventify.R
-import com.example.eventify.ui.themes.EventifyTheme
-import com.example.eventify.ui.themes.GRA_VER_PURPLE_WHITE
+import com.dev.eventify.R
+import com.dev.eventify.ui.themes.EventifyTheme
+import com.dev.eventify.ui.themes.GRA_VER_PURPLE_WHITE
 
 @Composable
 fun GradientTitleText(text: String, gradient: Brush){

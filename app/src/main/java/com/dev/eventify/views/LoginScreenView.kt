@@ -1,4 +1,4 @@
-package com.example.eventify.views
+package com.dev.eventify.views
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -19,19 +19,19 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.eventify.R
-import com.example.eventify.components.LargeSpace
-import com.example.eventify.components.HugeSpace
-import com.example.eventify.components.CustomContextText
-import com.example.eventify.components.GradientButton
-import com.example.eventify.components.GradientPasswordField
-import com.example.eventify.components.GradientTextFieldWithIcons
-import com.example.eventify.components.ImageMaxWidth
-import com.example.eventify.components.MaxWidthText
-import com.example.eventify.components.MediumSpace
-import com.example.eventify.components.NavigationText
-import com.example.eventify.ui.themes.EventifyTheme
-import com.example.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
+import com.dev.eventify.R
+import com.dev.eventify.components.LargeSpace
+import com.dev.eventify.components.HugeSpace
+import com.dev.eventify.components.CustomContextText
+import com.dev.eventify.components.GradientButton
+import com.dev.eventify.components.GradientPasswordField
+import com.dev.eventify.components.GradientTextFieldWithIcons
+import com.dev.eventify.components.ImageMaxWidth
+import com.dev.eventify.components.MaxWidthText
+import com.dev.eventify.components.MediumSpace
+import com.dev.eventify.components.NavigationText
+import com.dev.eventify.ui.themes.EventifyTheme
+import com.dev.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
 
 @Composable
 fun LoginScreenView(){

@@ -1,26 +1,16 @@
-package com.example.eventify
+package com.dev.eventify
 
-import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.eventify.ui.themes.EventifyTheme
-import com.example.eventify.views.LoginScreenView
-import com.example.eventify.views.OnboardingScreenView
-import com.example.eventify.views.PerfilView
-import com.example.eventify.views.RegisterScreenView
+import com.dev.eventify.ui.themes.EventifyTheme
+import com.dev.eventify.views.OnboardingScreenView
 
 
 class MainActivity : AppCompatActivity() {
@@ -38,27 +28,18 @@ class MainActivity : AppCompatActivity() {
 //        }
 
         // true asi que el activity mueve al otro activity
-//        splashScreen.setKeepOnScreenCondition {true}
         setContent{
             EventifyTheme(darkTheme = false) {
                 Surface(
-//                    modifier= Modifier.fillMaxSize(),
+                    modifier= Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-//                    OnboardingScreenView()
+                    OnboardingScreenView()
 //                    LoginScreenView()
-                    RegisterScreenView()
+//                    RegisterScreenView()
                 }
             }
 
         }
-
-        // true asi que el activity mueve al otro activity
-//        splashScreen.setKeepOnScreenCondition {true}
-//
-//        Handler(Looper.getMainLooper()).postDelayed({
-//            startActivity(Intent(this, AppActivity::class.java))
-//            finish()
-//        },2000)
     }
 }

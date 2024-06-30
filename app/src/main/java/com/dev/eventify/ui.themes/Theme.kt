@@ -1,4 +1,4 @@
-package com.example.eventify.ui.themes
+package com.dev.eventify.ui.themes
 
 import android.app.Activity
 import android.os.Build
@@ -14,14 +14,6 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
-//private val LightColorScheme = lightColorScheme(
-//    primary = LIGHT_BLUE,
-//    onPrimary = BLACK,
-//    primaryContainer = MEDIUM_BLUE,
-//    onPrimaryContainer= WHITE,
-//    // ..
-//
-//)
 private val LightColorScheme = lightColorScheme(
     primary = md_theme_light_primary,
     onPrimary = md_theme_light_onPrimary,

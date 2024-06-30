@@ -1,4 +1,4 @@
-package com.example.eventify.components
+package com.dev.eventify.components
 
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.input.OffsetMapping

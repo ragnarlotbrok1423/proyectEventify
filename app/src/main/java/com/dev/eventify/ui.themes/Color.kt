@@ -1,4 +1,4 @@
-package com.example.eventify.ui.themes
+package com.dev.eventify.ui.themes
 
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color

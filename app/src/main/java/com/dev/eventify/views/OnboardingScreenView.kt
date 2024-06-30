@@ -1,4 +1,4 @@
-package com.example.eventify.views
+package com.dev.eventify.views
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -18,16 +18,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.eventify.R
-import com.example.eventify.components.CustomContextText
-import com.example.eventify.components.GradientButton
-import com.example.eventify.components.GradientTitleText
-import com.example.eventify.components.MediumSpace
-import com.example.eventify.components.OutlineButton
-import com.example.eventify.components.SmallSpace
-import com.example.eventify.ui.themes.EventifyTheme
-import com.example.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
-import com.example.eventify.ui.themes.GRA_VER_PURPLE_WHITE
+import com.dev.eventify.R
+import com.dev.eventify.components.CustomContextText
+import com.dev.eventify.components.GradientButton
+import com.dev.eventify.components.GradientTitleText
+import com.dev.eventify.components.MediumSpace
+import com.dev.eventify.components.OutlineButton
+import com.dev.eventify.components.SmallSpace
+import com.dev.eventify.ui.themes.EventifyTheme
+import com.dev.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
+import com.dev.eventify.ui.themes.GRA_VER_PURPLE_WHITE
 
 @Composable
 fun OnboardingScreenView(){
