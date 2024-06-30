@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="app_icon_size">360dp</dimen>
+    <dimen name="app_width">300dp</dimen>
+    <dimen name="container_width">250dp</dimen>
+    <dimen name="container_height">340dp</dimen>
+
+    <dimen name="title_offset">-50dp</dimen>
+
+    <dimen name="padding_smaller">6dp</dimen>
+    <dimen name="padding_small">12dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_large">34dp</dimen>
+
+    <dimen name="small_gap">5dp</dimen>
+    <dimen name="medium_gap">25dp</dimen>
+    <dimen name="large_gap">50dp</dimen>
+    <dimen name="huge_gap">80dp</dimen>
+
+    <dimen name="extra_small_corner">4dp</dimen>
+    <dimen name="small_corner">10dp</dimen>
+    <dimen name="medium_corner">16dp</dimen>
+    <dimen name="large_corner">24dp</dimen>
+    <dimen name="huge_corner">36dp</dimen>
+
+    <dimen name="max_text_field_height">20dp</dimen>
+
+
+
+
+</resources>
