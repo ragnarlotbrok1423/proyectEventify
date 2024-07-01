@@ -9,21 +9,21 @@ import com.dev.eventify.R
 
 @Composable
 fun SmallSpace(){
-    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.small_gap)))
+    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.gap_small)))
 }
 
 @Composable
 fun MediumSpace(){
-    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.medium_gap)))
+    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.gap_medium)))
 }
 
 @Composable
 fun LargeSpace(){
-    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.large_gap)))
+    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.gap_large)))
 }
 
 @Composable
 fun HugeSpace(){
-    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.huge_gap)))
+    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.gap_huge)))
 }
 

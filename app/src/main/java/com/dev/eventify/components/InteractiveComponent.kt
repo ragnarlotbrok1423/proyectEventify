@@ -264,7 +264,7 @@ fun GradientPhoneTextField() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun GraExposedDropDownMenu(label: String){
+fun SelectTextField(label: String){
     val options = facultyModel
     var expanded by remember { mutableStateOf(false) }
     var selectedOptionText by remember { mutableStateOf(options[0]) }
@@ -274,7 +274,6 @@ fun GraExposedDropDownMenu(label: String){
         onExpandedChange = {
             expanded = !expanded
         },
-        modifier = Modifier.background(GRA_HOR_BLUE_PURPLE),
 
     ) {
         TextField(
@@ -288,7 +287,9 @@ fun GraExposedDropDownMenu(label: String){
                 )
             },
             colors = ExposedDropdownMenuDefaults.textFieldColors(),
-            modifier = Modifier.menuAnchor()
+            modifier = Modifier
+                .menuAnchor()
+                .fillMaxWidth()
         )
         ExposedDropdownMenu(
             expanded = expanded,
@@ -351,7 +352,7 @@ fun ComponentPreiew(){
 
             SmallSpace()
 
-            GraExposedDropDownMenu("level")
+            SelectTextField("level")
 
         }
     }

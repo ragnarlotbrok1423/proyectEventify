@@ -26,7 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.dev.eventify.R
 import com.dev.eventify.components.CustomContextText
-import com.dev.eventify.components.GraExposedDropDownMenu
+import com.dev.eventify.components.SelectTextField
 import com.dev.eventify.components.GradientButton
 import com.dev.eventify.components.GradientPasswordField
 import com.dev.eventify.components.GradientPhoneTextField
@@ -118,19 +118,19 @@ fun RegisterScreenView(){
 
                     SmallSpace()
 
-                    GraExposedDropDownMenu(
+                    SelectTextField(
                         label = stringResource(id = R.string.prompt_faculty))
 
                     SmallSpace()
 
-                    GraExposedDropDownMenu(label = stringResource(id = R.string.prompt_level))
+                    SelectTextField(label = stringResource(id = R.string.prompt_level))
 
                     Column (){
 
                     }
 
                     SmallSpace()
-                    GraExposedDropDownMenu(label = stringResource(id = R.string.prompt_carrer))
+                    SelectTextField(label = stringResource(id = R.string.prompt_carrer))
 
                     
                 }
