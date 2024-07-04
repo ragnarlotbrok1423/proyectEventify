@@ -1,7 +1,8 @@
-package com.dev.eventify.components
+package com.dev.eventify.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.rememberScrollState
@@ -24,7 +25,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -35,20 +35,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dev.eventify.R
-import com.dev.eventify.models.facultyModel
-import com.dev.eventify.ui.themes.BLACK
+import com.dev.eventify.data.models.facultyModel
 import com.dev.eventify.ui.themes.DARKER_BLUE
 import com.dev.eventify.ui.themes.EventifyTheme
 import com.dev.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
-import com.dev.eventify.ui.themes.GRA_HOR_BLUE_PURPLE
-import com.dev.eventify.ui.themes.Shape
 
 
 ////////////////////
@@ -60,18 +55,23 @@ fun GradientButton(
     text: String,
     gradient : Brush,
     ){
+        var mutableInteractionSource = remember {
+            MutableInteractionSource()
+        }
+
         Button(
             onClick = { onClick() },
             modifier = Modifier
+                .roundedAnimatedShadow(MaterialTheme.shapes.extraLarge,mutableInteractionSource)
                 .background(gradient, MaterialTheme.shapes.extraLarge)
                 .border(0.dp, Color.Transparent, MaterialTheme.shapes.extraLarge)
                 .fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
-            shape = MaterialTheme.shapes.extraLarge
-        ){
-            CustomContextText(text = text.uppercase(),
-                style = MaterialTheme.typography.headlineSmall,
-                textAlign = TextAlign.Center,
+            shape = MaterialTheme.shapes.extraLarge,
+            interactionSource = mutableInteractionSource,
+
+    ){
+            ButtonText(text = text.uppercase(),
             )
         }
 }
@@ -81,31 +81,27 @@ fun OutlineButton(
     onClick: () -> Unit ={},
     text: String,
     ) {
+    val mutableInteractionSource = remember {
+        MutableInteractionSource()
+    }
+
     Button(
         onClick = { onClick() },
         modifier = Modifier
+            .roundedAnimatedShadow(MaterialTheme.shapes.extraLarge,mutableInteractionSource)
             .background(Color.Transparent, shape = MaterialTheme.shapes.extraLarge)
             .border(2.dp, brush = GRA_HOR_BLACK_PURPLE, shape = MaterialTheme.shapes.extraLarge)
             .fillMaxWidth(),
         colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
         shape = MaterialTheme.shapes.extraLarge
     ){
-        CustomContextText(text = text.uppercase(),
-            style = MaterialTheme.typography.headlineSmall,
-            textAlign = TextAlign.Center,
+        ButtonText(text = text.uppercase(),
         )
     }
 }
 
 ////////////////////
 //TextField
-
-@Composable
-fun Modifier.gradientBlueBg(): Modifier{
-    return this then Modifier
-        .background(GRA_HOR_BLUE_PURPLE, shape = MaterialTheme.shapes.small)
-        .fillMaxWidth()
-}
 
 @Composable
 fun GradientTextFieldWithIcons(
@@ -141,18 +137,11 @@ fun GradientTextFieldWithIcons(
         keyboardOptions = KeyboardOptions(keyboardType = inputType),
         label = { Text(text = label) },
         placeholder = { Text(text = placeholder) },
-        modifier = Modifier.gradientBlueBg(),
-        colors = TextFieldDefaults.colors(
-            unfocusedContainerColor =Color.Transparent,
-            focusedContainerColor = Color.Transparent,
-            focusedTextColor = BLACK,
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-            errorIndicatorColor = Color.Transparent,
-            unfocusedLabelColor = colorResource(R.color.purple_dark),
-            focusedLabelColor = BLACK,
-            ),
-        shape = Shape.small,
+        modifier = Modifier
+//            .roundedAnimatedShadow(MaterialTheme.shapes.small)
+            .gradientBlueBg(),
+        colors = TextInputColors,
+        shape = MaterialTheme.shapes.small,
 
     )
 }
@@ -164,10 +153,8 @@ fun GradientPasswordField(
     icons :ImageVector,
 ) {
 
-    // Creating a variable to store password
     var password by remember { mutableStateOf("") }
 
-    // Creating a variable to store toggle state
     var passwordVisible by remember { mutableStateOf(false) }
 
     return TextField(
@@ -197,18 +184,11 @@ fun GradientPasswordField(
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
         label = { Text(text = label) },
         placeholder = { Text(text = placeholder) },
-        modifier = Modifier.gradientBlueBg(),
-        colors = TextFieldDefaults.colors(
-            unfocusedContainerColor =Color.Transparent,
-            focusedContainerColor = Color.Transparent,
-            focusedTextColor = BLACK,
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-            errorIndicatorColor = Color.Transparent,
-            unfocusedLabelColor = colorResource(R.color.purple_darker),
-            focusedLabelColor = BLACK
-        ),
-        shape = Shape.small
+        modifier = Modifier
+//            .roundedAnimatedShadow(MaterialTheme.shapes.small)
+            .gradientBlueBg(),
+        colors = TextInputColors,
+        shape = MaterialTheme.shapes.small
         )
 }
 
@@ -230,7 +210,9 @@ fun GradientPhoneTextField() {
         label = { Text(stringResource(id = R.string.prompt_phone)) },
         visualTransformation = NanpVisualTransformation(),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-        modifier = Modifier.gradientBlueBg(),
+        modifier = Modifier
+//            .roundedAnimatedShadow(MaterialTheme.shapes.small)
+            .gradientBlueBg(),
         leadingIcon = {
             Icon(
                 imageVector = Icons.Rounded.Phone,
@@ -248,17 +230,8 @@ fun GradientPhoneTextField() {
                 }
             }
         },
-        colors = TextFieldDefaults.colors(
-            unfocusedContainerColor =Color.Transparent,
-            focusedContainerColor = Color.Transparent,
-            focusedTextColor = BLACK,
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-            errorIndicatorColor = Color.Transparent,
-            unfocusedLabelColor = colorResource(R.color.purple_darker),
-            focusedLabelColor = BLACK
-        ),
-        shape = Shape.small
+        colors = TextInputColors,
+        shape = MaterialTheme.shapes.small
     )
 }
 
@@ -288,8 +261,11 @@ fun SelectTextField(label: String){
             },
             colors = ExposedDropdownMenuDefaults.textFieldColors(),
             modifier = Modifier
+//                .roundedAnimatedShadow(MaterialTheme.shapes.small)
+                .gradientBlueBg()
                 .menuAnchor()
-                .fillMaxWidth()
+                .fillMaxWidth(),
+            shape = MaterialTheme.shapes.small
         )
         ExposedDropdownMenu(
             expanded = expanded,
@@ -314,7 +290,7 @@ fun SelectTextField(label: String){
 
 @Preview()
 @Composable
-fun ComponentPreiew(){
+fun ComponentPreview(){
     EventifyTheme(darkTheme = false){
 
         Column {

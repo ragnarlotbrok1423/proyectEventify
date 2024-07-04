@@ -1,4 +1,4 @@
-package com.dev.eventify.views
+package com.dev.eventify.ui.views.authenticated
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -32,7 +32,7 @@ import androidx.compose.ui.draw.clip
 
 
 @Composable
-fun PerfilView(){
+fun UserProfileView(){
     Box(modifier = Modifier.fillMaxSize()){
         Column (
             modifier = Modifier
@@ -110,5 +110,5 @@ fun PerfilView(){
 )
 @Composable
 fun perfilPreview(){
-    PerfilView()
+    UserProfileView()
 }

@@ -30,9 +30,14 @@
     <string name="action_register">Sign Up</string>
 
     <!-- Error prompt -->
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="error_invalid_email_username">Email or username does not exist</string>
+    <string name="error_invalid_password">Password incorrect</string>
+    <string name="error_login_failed">"Login failed"</string>
+    <string name="empty_prompt" />
+    <string name="error_register_username">Not a valid username</string>
+    <string name="error_register_email">Not a valid email</string>
+    <string name="error_register_password">Need to be a least > 5 characters</string>
+    <string name="error_register_mobile">Not a valid phone number</string>
 
     <!-- Text below Title -->
     <string name="onboard_screen_text">No sabes cuando hay servicios socailes?\n&#218;nete a este app para ayudarlos</string>
@@ -48,5 +53,7 @@
     <string name="show_pass">Show</string>
     <string name="hide_pass">Hide</string>
 
+    <!-- labels -->
+    <string name="label_elevation">elevation</string>
 
 </resources>

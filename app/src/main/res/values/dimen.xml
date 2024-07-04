@@ -6,6 +6,9 @@
     <dimen name="container_width">250dp</dimen>
     <dimen name="container_height">340dp</dimen>
 
+    <dimen name="button_width">100dp</dimen>
+    <dimen name="button_height">40dp</dimen>
+
     <dimen name="title_offset">-50dp</dimen>
 
     <dimen name="padding_smaller">6dp</dimen>
@@ -26,7 +29,11 @@
 
     <dimen name="max_text_field_height">20dp</dimen>
 
+    <dimen name="min_elevation">0dp</dimen>
+    <dimen name="elevation_smaller">4dp</dimen>
+    <dimen name="elevation_small">8dp</dimen>
+    <dimen name="elevation_medium">12dp</dimen>
+    <dimen name="elevation_large">32dp</dimen>
 
-
-
+    <dimen name="box_size">50dp</dimen>
 </resources>

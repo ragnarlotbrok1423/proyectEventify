@@ -1,4 +1,4 @@
-package com.dev.eventify.components
+package com.dev.eventify.ui.components
 
 import android.os.Build.VERSION.SDK_INT
 import androidx.compose.foundation.Image

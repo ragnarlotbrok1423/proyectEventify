@@ -7,9 +7,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
+import androidx.navigation.NavHost
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.dev.eventify.navigation.NavigationRoutes
 import com.dev.eventify.ui.themes.EventifyTheme
-import com.dev.eventify.views.OnboardingScreenView
+import com.dev.eventify.ui.views.unauthenticated.OnboardingScreenView
 
 @SuppressLint("CustomSplashScreen")
 class MainActivity : AppCompatActivity() {

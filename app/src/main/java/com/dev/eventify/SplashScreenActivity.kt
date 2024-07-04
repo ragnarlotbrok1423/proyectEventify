@@ -1,7 +1,6 @@
 package com.dev.eventify
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -10,7 +9,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.dev.eventify.ui.themes.EventifyTheme
-import com.dev.eventify.views.SplashScreenView
+import com.dev.eventify.ui.views.SplashScreenView
 @SuppressLint("CustomSplashScreen")
 class SplashScreenActivity: ComponentActivity() {
 

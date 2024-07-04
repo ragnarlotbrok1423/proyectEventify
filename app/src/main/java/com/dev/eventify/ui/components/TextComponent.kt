@@ -1,4 +1,4 @@
-package com.dev.eventify.components
+package com.dev.eventify.ui.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,20 +18,36 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.dev.eventify.R
 import com.dev.eventify.ui.themes.EventifyTheme
 import com.dev.eventify.ui.themes.GRA_VER_PURPLE_WHITE
+import com.dev.eventify.ui.themes.md_theme_light_onPrimaryContainer
 
 @Composable
 fun GradientTitleText(text: String, gradient: Brush){
     Text(text = text,
         style = TextStyle(gradient),
-        fontSize = MaterialTheme.typography.displayLarge.fontSize,
-        fontFamily = MaterialTheme.typography.displayLarge.fontFamily,
+        fontSize = MaterialTheme.typography.displayMedium.fontSize,
+        fontFamily = MaterialTheme.typography.displayMedium.fontFamily,
         )
 }
 
 @Composable
-fun CustomContextText(text: String,
-                      style: TextStyle,
-                      textAlign: TextAlign
+fun SubTitleText(text: String){
+    Text(text = text,
+        color = md_theme_light_onPrimaryContainer,
+        style = MaterialTheme.typography.titleLarge,
+        )
+}
+
+@Composable
+fun ButtonText(text: String){
+    Text(
+        text = text,
+        style =  MaterialTheme.typography.titleLarge
+    )
+}
+
+@Composable
+fun ContextText(text: String,
+                textAlign: TextAlign
 ){
     Text(
         text = text,
@@ -39,7 +55,7 @@ fun CustomContextText(text: String,
             .padding(
                 top = dimensionResource(id = R.dimen.padding_smaller),
                 bottom = dimensionResource(id = R.dimen.padding_smaller)),
-        style = style,
+        style = MaterialTheme.typography.labelLarge,
         textAlign = textAlign,
     )
 }
@@ -56,8 +72,9 @@ fun MaxWidthText(text: String,
                 bottom = dimensionResource(id = R.dimen.padding_smaller)
             )
             .fillMaxWidth(),
-        style = MaterialTheme.typography.bodyLarge,
+        style = MaterialTheme.typography.labelLarge,
         textAlign = textAlign,
+        color = md_theme_light_onPrimaryContainer,
     )
 }
 
@@ -72,15 +89,15 @@ fun NavigationText(
         onClick = {onClick()},
         style = TextStyle(
             color = colorResource(R.color.earth_yellow),
-            fontSize = MaterialTheme.typography.bodyLarge.fontSize,
-            fontFamily = MaterialTheme.typography.bodyLarge.fontFamily,
+            fontSize = MaterialTheme.typography.labelLarge.fontSize,
+            fontFamily = MaterialTheme.typography.labelLarge.fontFamily,
             textAlign = textAlign
         ),
         modifier = Modifier
             .padding(
                 top = dimensionResource(id = R.dimen.padding_smaller),
                 bottom = dimensionResource(id = R.dimen.padding_smaller)
-            )
+            ),
     )
 }
 
@@ -94,10 +111,11 @@ fun TextPreview(){
         Column {
             GradientTitleText(text = "Eventify", gradient = GRA_VER_PURPLE_WHITE)
             SmallSpace()
-            CustomContextText(text = "how's going",
-                style = MaterialTheme.typography.headlineMedium,
+            ContextText(text = "how's going",
                 textAlign = TextAlign.Center,
             )
+            SmallSpace()
+            ButtonText(text = "button")
             SmallSpace()
             MaxWidthText(text = "heyyyyy",
                 textAlign = TextAlign.Center,

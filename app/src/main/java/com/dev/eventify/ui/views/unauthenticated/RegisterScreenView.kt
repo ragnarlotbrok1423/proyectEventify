@@ -1,4 +1,4 @@
-package com.dev.eventify.views
+package com.dev.eventify.ui.views.unauthenticated
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -15,7 +15,6 @@ import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.material.icons.rounded.Email
 import androidx.compose.material.icons.rounded.Lock
 import androidx.compose.material.icons.rounded.Person
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,22 +24,30 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.dev.eventify.R
-import com.dev.eventify.components.CustomContextText
-import com.dev.eventify.components.SelectTextField
-import com.dev.eventify.components.GradientButton
-import com.dev.eventify.components.GradientPasswordField
-import com.dev.eventify.components.GradientPhoneTextField
-import com.dev.eventify.components.GradientTextFieldWithIcons
-import com.dev.eventify.components.ImageMaxWidth
-import com.dev.eventify.components.MaxWidthText
-import com.dev.eventify.components.MediumSpace
-import com.dev.eventify.components.NavigationText
-import com.dev.eventify.components.SmallSpace
+import com.dev.eventify.ui.components.ContextText
+import com.dev.eventify.ui.components.SelectTextField
+import com.dev.eventify.ui.components.GradientButton
+import com.dev.eventify.ui.components.GradientPasswordField
+import com.dev.eventify.ui.components.GradientPhoneTextField
+import com.dev.eventify.ui.components.GradientTextFieldWithIcons
+import com.dev.eventify.ui.components.GradientTitleText
+import com.dev.eventify.ui.components.ImageMaxWidth
+import com.dev.eventify.ui.components.MaxWidthText
+import com.dev.eventify.ui.components.MediumSpace
+import com.dev.eventify.ui.components.NavigationText
+import com.dev.eventify.ui.components.SmallSpace
+import com.dev.eventify.ui.components.SubTitleText
 import com.dev.eventify.ui.themes.EventifyTheme
 import com.dev.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
+import com.dev.eventify.ui.themes.GRA_VER_BLACK_PURPLE
 
 @Composable
-fun RegisterScreenView(){
+fun RegisterScreenView(
+
+    navigateToLogin: () -> Unit,
+    navigateToAuthenticatedRoute: () -> Unit,
+    navigateBack: () -> Unit,
+){
     Box(
         modifier = Modifier.fillMaxSize()
     ){
@@ -56,16 +63,13 @@ fun RegisterScreenView(){
                 horizontalAlignment = Alignment.CenterHorizontally
             ){
 
-                CustomContextText(
+                GradientTitleText(
                     text = stringResource(id = R.string.action_register),
-                    style = MaterialTheme.typography.displayMedium,
-                    textAlign = TextAlign.Center,
+                    gradient = GRA_VER_BLACK_PURPLE,
                 )
 
-                CustomContextText(
+                SubTitleText(
                     text = stringResource(id = R.string.register_text),
-                    style = MaterialTheme.typography.titleLarge,
-                    textAlign = TextAlign.Center,
                 )
 
                 MediumSpace()
@@ -125,9 +129,6 @@ fun RegisterScreenView(){
 
                     SelectTextField(label = stringResource(id = R.string.prompt_level))
 
-                    Column (){
-
-                    }
 
                     SmallSpace()
                     SelectTextField(label = stringResource(id = R.string.prompt_carrer))
@@ -155,10 +156,9 @@ fun RegisterScreenView(){
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceAround
                 ) {
-                    CustomContextText(
+                    ContextText(
                         text = stringResource(id = R.string.to_register_text),
                         textAlign = TextAlign.Center,
-                        style = MaterialTheme.typography.bodyLarge,
                     )
                     NavigationText(
                         text = stringResource(id = R.string.title_activity_register),
@@ -183,6 +183,6 @@ fun RegisterScreenView(){
 @Composable
 fun RegisterPreview(){
     EventifyTheme (darkTheme= false) {
-        RegisterScreenView()
+//        RegisterScreenView()
     }
 }

@@ -1,4 +1,4 @@
-package com.dev.eventify.views
+package com.dev.eventify.ui.views
 
 import android.content.Intent
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -21,8 +21,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.dev.eventify.MainActivity
 import com.dev.eventify.R
-import com.dev.eventify.components.GifImage
-import com.dev.eventify.components.GradientTitleText
+import com.dev.eventify.ui.components.GifImage
+import com.dev.eventify.ui.components.GradientTitleText
 import com.dev.eventify.ui.themes.EventifyTheme
 import com.dev.eventify.ui.themes.GRA_VER_BLUE_PURPLE
 import com.dev.eventify.ui.themes.GRA_VER_PURPLE_WHITE
@@ -69,7 +69,8 @@ fun SplashScreenView(){
             ){
                 GradientTitleText(
                     text = stringResource(id = R.string.app_name),
-                    gradient = GRA_VER_PURPLE_WHITE)
+                    gradient = GRA_VER_PURPLE_WHITE
+                )
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.dev.eventify.components
+package com.dev.eventify.ui.components
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
