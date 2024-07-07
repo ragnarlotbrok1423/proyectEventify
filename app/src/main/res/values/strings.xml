@@ -6,23 +6,23 @@
     <string name="title_activity_register">Register</string>
 
     <!-- Prompts -->
-    <string name="prompt_username">Username</string>
+    <string name="prompt_nickname">Username</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="prompt_password_confirm">Confirm Password</string>
     <string name="prompt_phone">Phone number</string>
     <string name="prompt_faculty">Faculty</string>
-    <string name="prompt_carrer">Carrer</string>
+    <string name="prompt_career">Career</string>
     <string name="prompt_level">Level</string>
 
     <!-- Focused Prompts -->
-    <string name="focused_username">"Enter your username</string>
+    <string name="focused_nickname">"Enter your username</string>
     <string name="focused_email">"Enter your email</string>
     <string name="focused_password">"Enter your Password</string>
     <string name="focused_password_confirm">Confirm your Password</string>
     <string name="focused_phone">"Enter your phone number</string>
     <string name="focused_faculty">"Enter your current faculty</string>
-    <string name="focused_carrer">"Enter your current carrer</string>
+    <string name="focused_career">"Enter your current career</string>
     <string name="focused_level">"Enter your current level</string>
 
     <!-- Buttons -->
@@ -30,17 +30,20 @@
     <string name="action_register">Sign Up</string>
 
     <!-- Error prompt -->
-    <string name="error_invalid_email_username">Email or username does not exist</string>
+    <string name="error_invalid_email_nickname">Email or nickname does not exist</string>
     <string name="error_invalid_password">Password incorrect</string>
     <string name="error_login_failed">"Login failed"</string>
     <string name="empty_prompt" />
-    <string name="error_register_username">Not a valid username</string>
+    <string name="error_register_nickname">Not a valid username</string>
     <string name="error_register_email">Not a valid email</string>
     <string name="error_register_password">Need to be a least > 5 characters</string>
     <string name="error_register_mobile">Not a valid phone number</string>
+    <string name="error_register_faculty">Choose a least one faculty</string>
+    <string name="error_register_career">Choose a least one career</string>
+    <string name="error_register_level">Choose a least one career level</string>
 
     <!-- Text below Title -->
-    <string name="onboard_screen_text">No sabes cuando hay servicios socailes?\n&#218;nete a este app para ayudarlos</string>
+    <string name="onboard_screen_text">Want to check our college social events? Join us!</string>
     <string name="login_text">Login to your account</string>
     <string name="register_text">Create a new account</string>
     <string name="forgot_password">Forgot password</string>
@@ -55,5 +58,6 @@
 
     <!-- labels -->
     <string name="label_elevation">elevation</string>
+
 
 </resources>

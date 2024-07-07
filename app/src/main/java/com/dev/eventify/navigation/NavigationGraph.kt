@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import com.dev.eventify.ui.views.authenticated.UserProfileView
 import com.dev.eventify.ui.views.unauthenticated.LoginScreenView
+import com.dev.eventify.ui.views.unauthenticated.OnboardingScreenView
 import com.dev.eventify.ui.views.unauthenticated.RegisterScreenView
 
 /**
@@ -16,8 +17,30 @@ fun NavGraphBuilder.unauthenticatedGraph(navController: NavController){
 
     navigation(
         route = NavigationRoutes.Unauthenticated.DestinationRoute.route,
-        startDestination = NavigationRoutes.Unauthenticated.Login.route,
+        startDestination = NavigationRoutes.Unauthenticated.Onboarding.route,
     ){
+
+        // onboarding
+        composable(route = NavigationRoutes.Unauthenticated.Onboarding.route) {
+            OnboardingScreenView(
+
+                navigateToLogin = {
+                    navController.navigate(route = NavigationRoutes.Unauthenticated.Login.route)
+                },
+
+                navigateToRegistration = {
+                    navController.navigate(route = NavigationRoutes.Unauthenticated.Register.route)
+                },
+
+                navigateToAuthenticatedRoute = {
+                    navController.navigate(route = NavigationRoutes.Authenticated.DestinationRoute.route){
+                        popUpTo(route = NavigationRoutes.Unauthenticated.DestinationRoute.route){
+                            inclusive = true
+                        }
+                    }
+                },
+            )
+        }
 
         // login
         composable(route = NavigationRoutes.Unauthenticated.Login.route){
@@ -31,9 +54,9 @@ fun NavGraphBuilder.unauthenticatedGraph(navController: NavController){
 
                 navigateToAuthenticatedRoute = {
                     navController.navigate(route = NavigationRoutes.Authenticated.DestinationRoute.route){
-                        popUpTo(route = NavigationRoutes.Unauthenticated.DestinationRoute.route){
-                           inclusive = true
-                        }
+//                        popUpTo(route = NavigationRoutes.Unauthenticated.DestinationRoute.route){
+//                           inclusive = true
+//                        }
                     }
                 },
 
@@ -44,6 +67,7 @@ fun NavGraphBuilder.unauthenticatedGraph(navController: NavController){
             )
         }
 
+        // register
         composable(route = NavigationRoutes.Unauthenticated.Register.route) {
             RegisterScreenView(
 

@@ -32,13 +32,14 @@ import kotlinx.coroutines.delay
 fun SplashScreenView(){
 
     val context = LocalContext.current
+    val delayTime: Long  = 2000
 
     // Create a launcher for starting the activity
     val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult()
     ){}
     LaunchedEffect(key1 = true) {
-        delay(2000)
+        delay(delayTime)
         val intent = Intent(context, MainActivity::class.java)
         launcher.launch(intent)
     }

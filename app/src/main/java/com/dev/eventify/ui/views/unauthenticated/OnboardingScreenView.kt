@@ -30,7 +30,11 @@ import com.dev.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
 import com.dev.eventify.ui.themes.GRA_VER_PURPLE_WHITE
 
 @Composable
-fun OnboardingScreenView(){
+fun OnboardingScreenView(
+    navigateToLogin: () -> Unit,
+    navigateToRegistration: () -> Unit,
+    navigateToAuthenticatedRoute: () -> Unit,
+){
     Box(modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
         ) {
@@ -68,12 +72,18 @@ fun OnboardingScreenView(){
                 GradientButton(
                         text = stringResource(R.string.action_login),
                         gradient = GRA_HOR_BLACK_PURPLE,
+                        onClick = {
+                            navigateToLogin.invoke()
+                        }
                     )
 
                 MediumSpace()
 
                 OutlineButton(
                         text = stringResource(R.string.action_register),
+                        onClick = {
+                            navigateToRegistration.invoke()
+                        }
                     )
                 }
         }
@@ -88,6 +98,10 @@ fun OnboardingScreenView(){
 @Composable
 fun OnboardPreview(){
     EventifyTheme(){
-        OnboardingScreenView()
+        OnboardingScreenView(
+            navigateToLogin= {},
+            navigateToRegistration= {},
+            navigateToAuthenticatedRoute= {}
+        )
     }
 }

@@ -3,11 +3,11 @@ package com.dev.eventify.ui.viewModels.unauthenticated
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.dev.eventify.data.state.ErrorState
-import com.dev.eventify.data.state.LoginErrorState
-import com.dev.eventify.data.state.LoginState
-import com.dev.eventify.data.state.LoginUiEvent
-import com.dev.eventify.data.state.emailOrUsernameEmptyErrorState
-import com.dev.eventify.data.state.passwordEmptyErrorState
+import com.dev.eventify.data.state.login.LoginErrorState
+import com.dev.eventify.data.state.login.LoginState
+import com.dev.eventify.data.state.login.LoginUiEvent
+import com.dev.eventify.data.state.login.emailOrNicknameEmptyErrorState
+import com.dev.eventify.data.state.login.passwordEmptyErrorState
 
 class LoginViewModel : ViewModel(){
 
@@ -16,22 +16,22 @@ class LoginViewModel : ViewModel(){
 
     fun onLoginUiEvent(loginUiEvent: LoginUiEvent){
         when(loginUiEvent){
-            is LoginUiEvent.EmailOrUsernameChange -> {
+            is LoginUiEvent.EmailOrNicknameChange -> {
                 loginState.value = loginState.value.copy(
-                    emailOrUsername = loginUiEvent.inputEmailOrUsername,
+                    emailOrNickname = loginUiEvent.inputValue,
                     errorState = loginState.value.errorState.copy(
-                        emailOrUsernameErrorState = if (loginUiEvent.inputEmailOrUsername.trim().isNotEmpty())
+                        emailOrNicknameErrorState = if (loginUiEvent.inputValue.trim().isNotEmpty())
                             ErrorState()
                         else
-                            emailOrUsernameEmptyErrorState
+                            emailOrNicknameEmptyErrorState
                     ))
             }
 
             is LoginUiEvent.PasswordChange -> {
                 loginState.value = loginState.value.copy(
-                    password = loginUiEvent.inputPassword,
+                    password = loginUiEvent.inputValue,
                     errorState = loginState.value.errorState.copy(
-                        passwordErrorState = if (loginUiEvent.inputPassword.trim().isNotEmpty())
+                        passwordErrorState = if (loginUiEvent.inputValue.trim().isNotEmpty())
                             ErrorState()
                         else
                             passwordEmptyErrorState
@@ -48,13 +48,13 @@ class LoginViewModel : ViewModel(){
     }
 
     private fun validateInputs(): Boolean{
-        val emailOrUsername = loginState.value.emailOrUsername.trim()
+        val emailOrNickname = loginState.value.emailOrNickname.trim()
         val password = loginState.value.password
         return when {
 
-            emailOrUsername.isEmpty() ->{
+            emailOrNickname.isEmpty() ->{
                 loginState.value = loginState.value.copy(
-                    errorState = LoginErrorState(emailOrUsernameErrorState = emailOrUsernameEmptyErrorState)
+                    errorState = LoginErrorState(emailOrNicknameErrorState = emailOrNicknameEmptyErrorState)
                 )
                 false
             }

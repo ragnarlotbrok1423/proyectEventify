@@ -67,6 +67,10 @@ dependencies {
     androidTestImplementation(composeBom)
     // Material Design 3
     implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material-icons-core")
+    implementation("androidx.compose.material:material-icons-extended")
+    implementation("androidx.compose.material3:material3-window-size-class")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.3.0-beta03")
     // Navigation
     implementation("androidx.navigation:navigation-compose:2.7.1")//2.7.1
     implementation ("androidx.navigation:navigation-fragment-ktx:2.3.5")
@@ -98,22 +102,25 @@ dependencies {
     // SplashScreen
     implementation("androidx.core:core-splashscreen:1.0.1")
 
-    //  Included automatically by material, icons but not the material library
-    implementation("androidx.compose.material:material-icons-core")
-    //  Add full set of material icons
-    implementation("androidx.compose.material:material-icons-extended")
-    //  Add window size utils
-    implementation("androidx.compose.material3:material3-window-size-class")
-
-    //  Integration with activities
+    //  Activities
     implementation("androidx.activity:activity-compose")
-    //  Integration with ViewModels
+    //  ViewModels
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose")
-    //  Integration with LiveData
+    //  LiveData
     implementation("androidx.compose.runtime:runtime-livedata")
-    //  Integration with RxJava
+    //  RxJava
     implementation("androidx.compose.runtime:runtime-rxjava2")
 
     // Mysql
     implementation ("mysql:mysql-connector-java:8.0.21")
+
+    // Authentication
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.1")
+    implementation ("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation ("com.squareup.picasso:picasso:2.71828")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.6")
+    //coil
+//    <uses-permission android:name="android.permission.INTERNET"/>
 }

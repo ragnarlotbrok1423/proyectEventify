@@ -1,10 +1,7 @@
 package com.dev.eventify.ui.components
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -14,8 +11,6 @@ import androidx.compose.material.icons.rounded.Lock
 import androidx.compose.material.icons.rounded.Phone
 import androidx.compose.material.icons.rounded.Visibility
 import androidx.compose.material.icons.rounded.VisibilityOff
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -32,73 +27,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.dev.eventify.R
 import com.dev.eventify.data.models.facultyModel
 import com.dev.eventify.ui.themes.DARKER_BLUE
 import com.dev.eventify.ui.themes.EventifyTheme
-import com.dev.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
-
-
-////////////////////
-// Button
-
-@Composable
-fun GradientButton(
-    onClick: () -> Unit = { },
-    text: String,
-    gradient : Brush,
-    ){
-        var mutableInteractionSource = remember {
-            MutableInteractionSource()
-        }
-
-        Button(
-            onClick = { onClick() },
-            modifier = Modifier
-                .roundedAnimatedShadow(MaterialTheme.shapes.extraLarge,mutableInteractionSource)
-                .background(gradient, MaterialTheme.shapes.extraLarge)
-                .border(0.dp, Color.Transparent, MaterialTheme.shapes.extraLarge)
-                .fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
-            shape = MaterialTheme.shapes.extraLarge,
-            interactionSource = mutableInteractionSource,
-
-    ){
-            ButtonText(text = text.uppercase(),
-            )
-        }
-}
-
-@Composable
-fun OutlineButton(
-    onClick: () -> Unit ={},
-    text: String,
-    ) {
-    val mutableInteractionSource = remember {
-        MutableInteractionSource()
-    }
-
-    Button(
-        onClick = { onClick() },
-        modifier = Modifier
-            .roundedAnimatedShadow(MaterialTheme.shapes.extraLarge,mutableInteractionSource)
-            .background(Color.Transparent, shape = MaterialTheme.shapes.extraLarge)
-            .border(2.dp, brush = GRA_HOR_BLACK_PURPLE, shape = MaterialTheme.shapes.extraLarge)
-            .fillMaxWidth(),
-        colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
-        shape = MaterialTheme.shapes.extraLarge
-    ){
-        ButtonText(text = text.uppercase(),
-        )
-    }
-}
 
 ////////////////////
 //TextField
@@ -107,8 +45,11 @@ fun OutlineButton(
 fun GradientTextFieldWithIcons(
     label: String,
     placeholder: String,
-    icons :ImageVector,
+    icons : ImageVector,
     inputType: KeyboardType,
+//    value: String,
+//    onValueChange: (String) -> Unit,
+    imeAction: ImeAction = ImeAction.Next
 ) {
     var text by remember { mutableStateOf("") }
 
@@ -134,23 +75,60 @@ fun GradientTextFieldWithIcons(
                 }
             }
         },
-        keyboardOptions = KeyboardOptions(keyboardType = inputType),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = inputType,
+            imeAction = imeAction
+        ),
         label = { Text(text = label) },
         placeholder = { Text(text = placeholder) },
         modifier = Modifier
-//            .roundedAnimatedShadow(MaterialTheme.shapes.small)
+            .roundedShadow(MaterialTheme.shapes.small)
             .gradientBlueBg(),
         colors = TextInputColors,
         shape = MaterialTheme.shapes.small,
-
+//        isError =
     )
+}
+
+@Composable
+fun GradientEmailTextField(
+    modifier: Modifier = Modifier,
+    value: String,
+    onValueChange: (String) -> Unit,
+    label: String,
+    isError: Boolean = false,
+    errorText: String = "",
+    imeAction: ImeAction = ImeAction.Next
+) {
+
+    TextField(
+        modifier = modifier,
+        value = value,
+        onValueChange = onValueChange,
+        label = {
+            Text(text = label)
+        },
+        maxLines = 1,
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Email,
+            imeAction = imeAction
+        ),
+        isError = isError,
+        supportingText = {
+            if (isError) {
+                ErrorTextField(text = errorText)
+            }
+        }
+    )
+
 }
 
 @Composable
 fun GradientPasswordField(
     label: String,
     placeholder: String,
-    icons :ImageVector,
+    icons : ImageVector,
+    imeAction: ImeAction = ImeAction.Done
 ) {
 
     var password by remember { mutableStateOf("") }
@@ -173,33 +151,33 @@ fun GradientPasswordField(
                 Icons.Rounded.Visibility
             else Icons.Rounded.VisibilityOff
 
-            // Localized description for accessibility services
             val description = if (passwordVisible) "Hide password" else "Show password"
 
-            // Toggle button to hide or display password
             IconButton(onClick = {passwordVisible = !passwordVisible}){
                 Icon(imageVector  = image, description, tint = DARKER_BLUE)
             }
-                       },
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+        },
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Password,
+            imeAction = imeAction
+        ),
         label = { Text(text = label) },
         placeholder = { Text(text = placeholder) },
         modifier = Modifier
-//            .roundedAnimatedShadow(MaterialTheme.shapes.small)
+            .roundedShadow(MaterialTheme.shapes.small)
             .gradientBlueBg(),
         colors = TextInputColors,
         shape = MaterialTheme.shapes.small
-        )
+    )
 }
 
 @Composable
-fun GradientPhoneTextField() {
+fun GradientPhoneTextField( imeAction: ImeAction = ImeAction.Next) {
     var phoneNumber by rememberSaveable { mutableStateOf("") }
     val numericRegex = Regex("[^0-9]")
     TextField(
         value = phoneNumber,
         onValueChange = {
-            // Quitar los que no son numeros
             val stripped = numericRegex.replace(it, "")
             phoneNumber = if (stripped.length >= 10) {
                 stripped.substring(0..9)
@@ -209,16 +187,19 @@ fun GradientPhoneTextField() {
         },
         label = { Text(stringResource(id = R.string.prompt_phone)) },
         visualTransformation = NanpVisualTransformation(),
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number,
+            imeAction = imeAction
+        ),
         modifier = Modifier
-//            .roundedAnimatedShadow(MaterialTheme.shapes.small)
+            .roundedShadow(MaterialTheme.shapes.small)
             .gradientBlueBg(),
         leadingIcon = {
             Icon(
                 imageVector = Icons.Rounded.Phone,
                 contentDescription = null
             )
-                      },
+        },
         trailingIcon = {
             if (phoneNumber.isNotBlank()) {
                 IconButton(onClick = { phoneNumber = "" }) {
@@ -235,6 +216,7 @@ fun GradientPhoneTextField() {
     )
 }
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SelectTextField(label: String){
@@ -248,7 +230,7 @@ fun SelectTextField(label: String){
             expanded = !expanded
         },
 
-    ) {
+        ) {
         TextField(
             readOnly = true,
             value = selectedOptionText,
@@ -261,7 +243,7 @@ fun SelectTextField(label: String){
             },
             colors = ExposedDropdownMenuDefaults.textFieldColors(),
             modifier = Modifier
-//                .roundedAnimatedShadow(MaterialTheme.shapes.small)
+                .roundedShadow(MaterialTheme.shapes.small)
                 .gradientBlueBg()
                 .menuAnchor()
                 .fillMaxWidth(),
@@ -272,9 +254,9 @@ fun SelectTextField(label: String){
             onDismissRequest = {
                 expanded = false
             },
-            modifier= Modifier.exposedDropdownSize(true),
+            modifier = Modifier.exposedDropdownSize(true),
             scrollState = rememberScrollState()
-            ) {
+        ) {
             options.forEach { selectionOption ->
                 DropdownMenuItem(
                     text = { Text(text = selectionOption) },
@@ -288,33 +270,22 @@ fun SelectTextField(label: String){
     }
 }
 
-@Preview()
+@Preview
 @Composable
-fun ComponentPreview(){
+fun TextFieldComponentPreview(){
     EventifyTheme(darkTheme = false){
 
-        Column {
-            GradientButton(
-                text = "Login",
-                gradient = GRA_HOR_BLACK_PURPLE,
-            )
-
-            SmallSpace()
-
-            OutlineButton(
-                text = "register",
-            )
-
-            SmallSpace()
+        GapColumn(modifier = Modifier.
+        padding(vertical = dimensionResource(id = R.dimen.padding_none),
+            horizontal = dimensionResource(id = R.dimen.padding_medium),
+        ),) {
 
             GradientTextFieldWithIcons(
                 "Username",
                 "Enter your username",
                 Icons.Default.Email,
                 KeyboardType.Text,
-                )
-
-            SmallSpace()
+            )
 
             GradientPasswordField(
                 "Username",
@@ -322,14 +293,14 @@ fun ComponentPreview(){
                 Icons.Rounded.Lock,
             )
 
-            SmallSpace()
-
             GradientPhoneTextField()
-
-            SmallSpace()
 
             SelectTextField("level")
 
+            GradientEmailTextField(label = "email",
+                value =  "",
+                onValueChange = { (String) },
+                modifier = Modifier.fillMaxWidth())
         }
     }
 }

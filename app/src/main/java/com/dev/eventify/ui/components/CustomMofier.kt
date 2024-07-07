@@ -10,6 +10,7 @@ import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.graphicsLayer
@@ -27,9 +28,7 @@ import com.dev.eventify.ui.themes.md_theme_light_shadow
 
 @Composable
 fun Modifier.roundedAnimatedShadow(shape: Shape, mutableInteractionSource: MutableInteractionSource): Modifier {
-//    var mutableInteractionSource = remember {
-//        MutableInteractionSource()
-//    }
+
     var pressed = mutableInteractionSource.collectIsPressedAsState()
     var elevation = animateDpAsState(
         targetValue = if (pressed.value) {
@@ -41,13 +40,6 @@ fun Modifier.roundedAnimatedShadow(shape: Shape, mutableInteractionSource: Mutab
     )
 
     return this then Modifier
-//        .shadow(
-//            elevation = elevation.value,
-//            shape = shape,
-//            clip = true,
-//            ambientColor = md_theme_light_shadow,
-//            spotColor = md_theme_light_shadow
-//        )
         .graphicsLayer {
             this.shadowElevation = elevation.value.toPx()
             this.shape = shape
@@ -55,9 +47,18 @@ fun Modifier.roundedAnimatedShadow(shape: Shape, mutableInteractionSource: Mutab
             this.ambientShadowColor = md_theme_light_shadow
             this.spotShadowColor = md_theme_light_shadow
         }
-//        .clickable(interactionSource = mutableInteractionSource, indication = null) {
-//        }
+}
 
+@Composable
+fun Modifier.roundedShadow(shape: Shape): Modifier{
+    return this then Modifier
+            .shadow(
+            elevation = dimensionResource(id = R.dimen.elevation_small),
+            shape = shape,
+            clip = true,
+            ambientColor = md_theme_light_shadow,
+            spotColor = md_theme_light_shadow
+        )
 }
 
 @Composable

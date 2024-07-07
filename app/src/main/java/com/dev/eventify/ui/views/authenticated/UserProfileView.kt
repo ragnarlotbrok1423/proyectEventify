@@ -109,6 +109,6 @@ fun UserProfileView(){
     backgroundColor = 0xFFFFFFFF
 )
 @Composable
-fun perfilPreview(){
+fun UserProfilePreview(){
     UserProfileView()
 }

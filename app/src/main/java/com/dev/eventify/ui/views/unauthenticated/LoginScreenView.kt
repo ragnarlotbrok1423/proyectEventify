@@ -3,13 +3,10 @@ package com.dev.eventify.ui.views.unauthenticated
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Lock
 import androidx.compose.material.icons.rounded.Person
@@ -19,7 +16,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
@@ -28,21 +24,24 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dev.eventify.R
-import com.dev.eventify.ui.components.LargeSpace
-import com.dev.eventify.ui.components.HugeSpace
+import com.dev.eventify.data.state.login.LoginUiEvent
 import com.dev.eventify.ui.components.ContextText
+import com.dev.eventify.ui.components.GapColumn
 import com.dev.eventify.ui.components.GradientButton
 import com.dev.eventify.ui.components.GradientPasswordField
 import com.dev.eventify.ui.components.GradientTextFieldWithIcons
 import com.dev.eventify.ui.components.GradientTitleText
+import com.dev.eventify.ui.components.IconBackButton
 import com.dev.eventify.ui.components.ImageMaxWidth
-import com.dev.eventify.ui.components.MaxWidthText
 import com.dev.eventify.ui.components.MediumSpace
 import com.dev.eventify.ui.components.NavigationText
+import com.dev.eventify.ui.components.ScrollableColumn
 import com.dev.eventify.ui.components.SubTitleText
+import com.dev.eventify.ui.components.TopStartColumn
 import com.dev.eventify.ui.themes.EventifyTheme
 import com.dev.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
 import com.dev.eventify.ui.themes.GRA_VER_BLACK_PURPLE
+import com.dev.eventify.ui.themes.md_theme_light_onPrimary
 import com.dev.eventify.ui.themes.md_theme_light_onPrimaryContainer
 import com.dev.eventify.ui.viewModels.unauthenticated.LoginViewModel
 
@@ -66,20 +65,20 @@ fun LoginScreenView(
     } else {
 
         Box(modifier = Modifier.fillMaxSize()) {
-            Column(
-                modifier = Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.Top,
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
+            TopStartColumn {
+                IconBackButton(onClick = { navigateBack.invoke() },
+                    color = md_theme_light_onPrimary)
+            }
+
+            ScrollableColumn {
                 ImageMaxWidth(img = R.drawable.login_sheep)
 //        GifImage(modifier = Modifier.fillMaxWidth(), R.drawable.welcome_sheep)
 
-                Column(
-                    modifier =
-                        Modifier
-                            .padding(dimensionResource(id = R.dimen.padding_medium)),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.gap_medium))
+                GapColumn(
+                    modifier = Modifier
+                            .padding(vertical = dimensionResource(id = R.dimen.padding_none),
+                                horizontal = dimensionResource(id = R.dimen.padding_medium),
+                            )
                 ) {
                     GradientTitleText(
                         text = stringResource(id = R.string.title_activity_login),
@@ -92,8 +91,8 @@ fun LoginScreenView(
 
 
                     GradientTextFieldWithIcons(
-                        stringResource(id = R.string.prompt_username),
-                        stringResource(id = R.string.focused_username),
+                        stringResource(id = R.string.prompt_nickname),
+                        stringResource(id = R.string.focused_nickname),
                         Icons.Rounded.Person,
                         KeyboardType.Text,
                     )
@@ -126,6 +125,10 @@ fun LoginScreenView(
                     GradientButton(
                         text = stringResource(id = R.string.action_login),
                         gradient = GRA_HOR_BLACK_PURPLE,
+                        onClick = {
+                            loginViewModel.onLoginUiEvent(loginUiEvent = LoginUiEvent.Submit)
+                            navigateToAuthenticatedRoute.invoke()
+                        }
                     )
 
                     Row(

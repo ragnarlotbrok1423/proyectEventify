@@ -101,6 +101,19 @@ fun NavigationText(
     )
 }
 
+@Composable
+fun ErrorTextField(
+    modifier: Modifier = Modifier,
+    text: String
+){
+    Text(
+        modifier = modifier,
+        text = text,
+        style = MaterialTheme.typography.bodyMedium,
+        color = MaterialTheme.colorScheme.error
+    )
+}
+
 @Preview(
     showBackground = true,
     backgroundColor = 0xFFFFFFF
@@ -120,6 +133,7 @@ fun TextPreview(){
             MaxWidthText(text = "heyyyyy",
                 textAlign = TextAlign.Center,
                 )
+            ErrorTextField(text = "error")
         }
     }
 }
