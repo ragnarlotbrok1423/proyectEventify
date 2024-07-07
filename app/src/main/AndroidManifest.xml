@@ -12,6 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight"
         tools:targetApi="31">
+        <activity android:name=".ui.ComentariosActivity" />
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/Base.Theme.Eventify"

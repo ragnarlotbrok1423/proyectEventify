@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:padding="16dp">
+
+        <ImageButton
+            android:id="@+id/imageButtonRegresar"
+            android:layout_width="28dp"
+            android:layout_height="26dp"
+            android:layout_alignParentStart="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="Regresar"
+            android:foreground="@android:drawable/arrow_up_float"
+            android:rotation="-90" />
+
+        <TextView
+            android:id="@+id/headerTextComentarios"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Comentarios"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/comentarioLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fillViewport="true">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:columnCount="1"
+                android:alignmentMode="alignMargins">
+
+                <RelativeLayout
+                    android:id="@+id/comentari"
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/border_comment"
+                    android:padding="16dp">
+
+                    <!-- Aquí se agregarán dinámicamente los comentarios despues-->
+
+                    <TextView
+                        android:id="@+id/textViewComentario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="0dp"
+                        android:text="Comentario"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textViewValoracion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/textViewComentario"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="0dp"
+                        android:text="Valoración"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+            </GridLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/editTextValoracion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextComentariolayaut"
+        android:layout_marginTop="-50dp"
+        android:hint="Valoración (1-10)"
+        android:inputType="number" />
+
+    <RelativeLayout
+        android:id="@+id/editTextComentariolayaut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="421dp"
+        android:layout_marginBottom="65dp">
+
+        <RelativeLayout
+            android:id="@+id/commentBox"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_marginStart="13dp"
+            android:background="@drawable/comment_container_border">
+
+            <EditText
+                android:id="@+id/editTextComentario"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:hint="Escribe tu comentario"
+                android:onClick="onCommentClick"
+                android:textColor="#000000" />
+
+            <ImageButton
+                android:id="@+id/buttonSubmitComentario"
+                android:layout_width="27dp"
+                android:layout_height="41dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="8dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="Publicar Comentario"
+                android:foreground="@android:drawable/arrow_up_float"
+                android:foregroundTint="@color/azul"
+                android:rotation="90" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

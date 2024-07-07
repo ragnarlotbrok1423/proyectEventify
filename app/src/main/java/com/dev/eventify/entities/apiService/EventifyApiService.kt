@@ -1,5 +1,6 @@
 package com.dev.eventify.entities.apiService
 
+import com.dev.eventify.entities.models.Comentario
 import com.dev.eventify.entities.models.FacultadesXpostsXprofesores
 import com.dev.eventify.entities.models.Post
 import com.dev.eventify.entities.models.PostResponse
@@ -16,11 +17,15 @@ interface EventifyApiService {
     suspend fun  createPost(@Body post: Post ): Post
     @POST("api/facultadesXpostXprofesores")
     suspend fun createPublication(@Body publication: FacultadesXpostsXprofesores ): FacultadesXpostsXprofesores
+    @POST("api/comentarios")
+    suspend fun createComentario(@Body comentario: Comentario): Comentario
     @GET("api/facultadesXpostXprofesores")
     suspend fun getPublication(): FacultadesXpostsXprofesores
     @GET("api/facultadesXpostXprofesores/{id}")
     suspend fun getEspecificPublication(@Path("id") id: Int): FacultadesXpostsXprofesores
 
+    @GET("api/comentarios/profesor/{profesorId}")
+    suspend fun getComentariosByProfesor(@Path("profesorId") profesorId: Int): List<Comentario>
 }
 object EventifyService{
     private const val baseUrl = "https://eventify.com/"

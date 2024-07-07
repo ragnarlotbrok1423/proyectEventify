@@ -7,8 +7,7 @@ import com.dev.eventify.entities.PostsInteractors
 import com.dev.eventify.entities.apiService.EventifyApiService
 import com.dev.eventify.entities.models.FacultadesXpostsXprofesores
 import com.dev.eventify.entities.models.Post
-import com.dev.eventify.entities.models.toFacultadesXpostsXprofesores
-import com.dev.eventify.entities.models.toPost
+
 
 class PostInteractor(private val apiService: EventifyApiService) : PostsInteractors{
     override suspend fun createPost(titulo: String, descripcion: String, imagen: String): Post? {
