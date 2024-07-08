@@ -22,9 +22,26 @@
     <string name="eliminar">Eliminar</string>
     <string name="editar_imag">Editar imagen</string>
     <string name="pyme_text">Nombre Empredimiento</string>
+    <string name="comunity_text">Nombre Comunidad</string>
     <string name="input_textfield">Name</string>
-    descripcion_text
-    <string name="descripcion_text">Descripcion de</string>
+    <!-- strings.xml -->
+    <string name="seguir">Seguir</string>
+    <string name="descripcion_text_comunidad">Descripcion de Comunidad</string>
+    <string name="descripcion_text_empredimiento">Descripcion de emprendimiento</string>
     <string name="descripcion_field">Descripcion</string>
+    <!-- strings.xml -->
+    <string name="crear_comun">Crear Comunidad</string>
+    <string name="helena">Helena</string>
+    <string name="some_id">19</string>
+    <string name="faculta_de_">Faculta de Sistemas Computacionales</string>
+    <string name="calificacio">Calificaciones</string>
+    <string name="negativo">Negativo</string>
+    <string name="intermedio">Intermedio</string>
+    <string name="positivo">Positivo</string>
+    <string name="calificar">Calificar</string>
+    <string name="view_comment">comentario</string>
+        <string name="comunidadesbar">Comunidades</string>
+    <string name="k">✧1.5K</string>
+
 
 </resources>

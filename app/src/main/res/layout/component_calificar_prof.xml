@@ -1,0 +1,133 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/calificar_prof"
+    android:layout_width="352dp"
+    android:layout_height="102dp"
+    android:layout_marginLeft="22dp"
+    android:layout_marginTop="379dp">
+
+    <RelativeLayout
+        android:id="@+id/layer_textcalific"
+        android:layout_width="277dp"
+        android:layout_height="56dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="97dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp">
+
+        <TextView
+            android:id="@+id/calificacio"
+            android:layout_width="154dp"
+            android:layout_height="24dp"
+            android:text="@string/calificacio"
+            android:textAppearance="@style/calificacio"
+            android:lineSpacingExtra="4sp"
+            android:translationY="-1.9sp"
+            android:gravity="center_horizontal|top" />
+
+        <TextView
+            android:id="@+id/negativo"
+            android:layout_width="103dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="140dp"
+            android:gravity="center_horizontal|top"
+            android:lineSpacingExtra="4sp"
+            android:text="@string/negativo"
+            android:textAppearance="@style/negativo"
+            android:translationY="-1.9sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/state_layer_buttons"
+        android:layout_width="251dp"
+        android:layout_height="56dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="118dp"
+        android:layout_marginTop="46dp">
+
+        <RelativeLayout
+            android:id="@+id/button"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:clipToOutline="true"
+            android:background="@drawable/button">
+
+            <TextView
+                android:id="@+id/label_text"
+                android:layout_width="53dp"
+                android:layout_height="20dp"
+                android:text="@string/calificar"
+                android:textAppearance="@style/label_text"
+                android:lineSpacingExtra="4sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/button_view_comment"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/button"
+            android:clipToOutline="true"
+            android:background="@drawable/button">
+
+            <TextView
+                android:id="@+id/view_comment"
+                android:layout_width="90dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/view_comment"
+                android:textAppearance="@style/label_text"
+                android:lineSpacingExtra="4sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/circular_in"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="0dp">
+
+        <ProgressBar
+            android:id="@+id/circularProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:indeterminateOnly="false"
+            android:max="100"
+            android:progress="50"
+            android:progressDrawable="@drawable/active_indi" />
+
+        <View
+            android:id="@+id/medium"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/medium"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/posit"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/posit"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/bad"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bad"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

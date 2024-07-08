@@ -1,21 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
 
-<!-- drawable/state_layer.xml -->
 <vector
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:aapt="http://schemas.android.com/aapt"
-    android:width="157dp"
-    android:height="35dp"
-    android:viewportWidth="157"
-    android:viewportHeight="35"
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:aapt="http://schemas.android.com/aapt"
+android:width="157dp"
+android:height="35dp"
+android:viewportWidth="157"
+android:viewportHeight="35"
     >
-    <group>
-        <clip-path
-            android:pathData="M17.5 0H139.5C149.165 0 157 7.83502 157 17.5C157 27.165 149.165 35 139.5 35H17.5C7.83502 35 0 27.165 0 17.5C0 7.83502 7.83502 0 17.5 0Z"
-            />
-        <path
-            android:pathData="M0 0V35H157V0"
-            android:fillColor="#E4AC64"
-            />
-    </group>
+<group>
+    <clip-path
+        android:pathData="M17.5 0H139.5C149.165 0 157 7.83502 157 17.5C157 27.165 149.165 35 139.5 35H17.5C7.83502 35 0 27.165 0 17.5C0 7.83502 7.83502 0 17.5 0Z"
+        />
+    <path
+        android:pathData="M0 0V35H157V0"
+        android:fillColor="#6750A4"
+        />
+</group>
 </vector>

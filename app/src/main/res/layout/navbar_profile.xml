@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mobile_app_"
+    android:layout_width="375dp"
+    android:layout_height="54dp"
+    android:background="@drawable/navbar_layer_profile"
+    android:translationY="10dp"
+    android:translationX="10dp"
+   >
+
+
+    <View
+        android:id="@+id/union"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/SearchIco"/>
+
+
+    <TextView
+        android:id="@+id/inicio"
+        android:layout_width="50dp"
+        android:layout_height="28dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="148dp"
+        android:layout_marginBottom="11dp"
+        android:gravity="center_horizontal|top"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/inicio"
+        android:textAppearance="@style/navbar_title"
+        android:translationY="-1.9sp" />
+
+    <View
+        android:id="@+id/profile_ima"
+        android:layout_width="43dp"
+        android:layout_height="42dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="313dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/PerfilChibi" />
+
+
+</RelativeLayout>
+

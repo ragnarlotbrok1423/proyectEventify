@@ -1,0 +1,28 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/state_layer"
+    android:layout_width="340dp"
+    android:layout_height="55dp"
+    android:background="@drawable/background_conf">
+
+    <RelativeLayout
+        android:id="@+id/inner_relative_layout"
+        android:layout_width="157dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="9dp"
+        android:background="@drawable/button_conf">
+
+        <TextView
+            android:id="@+id/crear_comun"
+            android:layout_width="136dp"
+            android:layout_height="21dp"
+            android:layout_centerInParent="true"
+            android:text="@string/crear_comun"
+            android:textAppearance="@style/crear_comun"
+            android:lineSpacingExtra="4sp"
+            android:gravity="center_horizontal|top"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

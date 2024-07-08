@@ -106,7 +106,7 @@
                             android:id="@+id/pyme_text"
                             android:layout_width="160dp"
                             android:layout_height="16dp"
-                            android:text="@string/comunity_text"
+                            android:text="@string/pyme_text"
                             android:textAppearance="@style/pyme_text"
                             android:lineSpacingExtra="2sp"
                             android:translationY="-0.97sp"

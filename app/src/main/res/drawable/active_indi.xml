@@ -1,20 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
-<vector
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:aapt="http://schemas.android.com/aapt"
-    android:width="211dp"
-    android:height="1dp"
-    android:viewportWidth="211"
-    android:viewportHeight="1"
-    >
-    <group>
-        <clip-path
-            android:pathData="M0.5 0.5H210.5H0.5Z"
-            />
-    </group>
-    <path
-        android:pathData="M0.5 0.5H210.5H0.5Z"
-        android:strokeWidth="1"
-        android:strokeColor="#49454F"
-        />
-</vector>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape android:shape="ring"
+            android:innerRadiusRatio="3"
+            android:thicknessRatio="26"
+            android:useLevel="false">
+            <solid android:color="#E0E0E0" />
+        </shape>
+    </item>
+    <item android:id="@android:id/secondaryProgress">
+        <clip>
+            <shape android:shape="ring"
+                android:innerRadiusRatio="3"
+                android:thicknessRatio="26"
+                android:useLevel="true">
+                <solid android:color="#B0BEC5" />
+            </shape>
+        </clip>
+    </item>
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="ring"
+                android:innerRadiusRatio="3"
+                android:thicknessRatio="26"
+                android:useLevel="true">
+                <solid android:color="#65558F" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>

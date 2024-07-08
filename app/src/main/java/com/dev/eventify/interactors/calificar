@@ -1,0 +1,25 @@
+//kotlin como la estrutura lo ven ustede tomen la funcion de calificacion
+val progressBar: ProgressBar = findViewById(R.id.circularProgressBar)
+val badIndicator: View = findViewById(R.id.bad)
+val mediumIndicator: View = findViewById(R.id.medium)
+val positIndicator: View = findViewById(R.id.posit)
+
+val progress = progressBar.progress
+
+when {
+    progress < 33 -> {
+        badIndicator.visibility = View.VISIBLE
+        mediumIndicator.visibility = View.GONE
+        positIndicator.visibility = View.GONE
+    }
+    progress < 66 -> {
+        badIndicator.visibility = View.GONE
+        mediumIndicator.visibility = View.VISIBLE
+        positIndicator.visibility = View.GONE
+    }
+    else -> {
+        badIndicator.visibility = View.GONE
+        mediumIndicator.visibility = View.GONE
+        positIndicator.visibility = View.VISIBLE
+    }
+}
