@@ -33,6 +33,14 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    //Compose
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.2"
+    }
+    buildFeatures {
+        compose = true
+        viewBinding = true
+    }
 
     //Compose
     composeOptions {
@@ -51,15 +59,10 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.room.ktx)
-//    implementation(libs.firebase.firestore.ktx)
     testImplementation(libs.junit)
+    implementation(libs.androidx.room.ktx)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-//    implementation ("androidx.navigation:navigation-compose:2.5.3")
-//    implementation ("com.google.android.material:material:1.12.0")
-//    implementation("androidx.compose.material3:material3-window-size-class:1.2.1")
-//    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.3.0-beta03")
 
     // Compose
     val composeBom = platform("androidx.compose:compose-bom:2024.06.00")
@@ -71,6 +74,7 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended")
     implementation("androidx.compose.material3:material3-window-size-class")
     implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.3.0-beta03")
+
     // Navigation
     implementation("androidx.navigation:navigation-compose:2.7.1")//2.7.1
     implementation ("androidx.navigation:navigation-fragment-ktx:2.3.5")
@@ -120,7 +124,9 @@ dependencies {
     implementation ("com.squareup.okhttp3:logging-interceptor:4.9.1")
     implementation ("com.squareup.okhttp3:okhttp:4.11.0")
     implementation ("com.squareup.picasso:picasso:2.71828")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.6")
-    //coil
-//    <uses-permission android:name="android.permission.INTERNET"/>
+//    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.6")
+
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+//    >>>>>>> e809ea8c9d45a15491d6a664024c39cdcf5e981d
 }
