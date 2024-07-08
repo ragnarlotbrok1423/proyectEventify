@@ -78,7 +78,6 @@ dependencies {
     // Navigation
     implementation("androidx.navigation:navigation-compose:2.7.1")//2.7.1
     implementation ("androidx.navigation:navigation-fragment-ktx:2.3.5")
-//    implementation ("androidx.navigation:navigation-ui-ktx:2.3.5")
 
     // Android Studio Preview support
     implementation("androidx.compose.ui:ui-tooling-preview")
