@@ -73,11 +73,11 @@ dependencies {
     implementation("androidx.compose.material:material-icons-core")
     implementation("androidx.compose.material:material-icons-extended")
     implementation("androidx.compose.material3:material3-window-size-class")
-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.3.0-beta03")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.3.0-beta04")
 
     // Navigation
-    implementation("androidx.navigation:navigation-compose:2.7.1")//2.7.1
-    implementation ("androidx.navigation:navigation-fragment-ktx:2.3.5")
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+    implementation ("androidx.navigation:navigation-fragment-ktx:2.7.7")
 
     // Android Studio Preview support
     implementation("androidx.compose.ui:ui-tooling-preview")
@@ -91,14 +91,14 @@ dependencies {
     // Animation
     implementation("androidx.compose.animation:animation")
     // Shapes
-    implementation ("androidx.graphics:graphics-shapes:1.0.0-alpha05")
+    implementation ("androidx.graphics:graphics-shapes:1.0.0-beta01")
     // Gif
     implementation("io.coil-kt:coil:2.6.0")
     implementation("io.coil-kt:coil-gif:2.6.0")
     implementation ("io.coil-kt:coil-compose:2.6.0")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-    androidTestImplementation("androidx.test:runner:1.4.0")
-    androidTestImplementation("androidx.test:rules:1.4.0")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+    androidTestImplementation("androidx.test:runner:1.6.1")
+    androidTestImplementation("androidx.test:rules:1.6.1")
     // Image
     implementation("androidx.compose.foundation:foundation:1.6.8")
 
@@ -121,11 +121,11 @@ dependencies {
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.squareup.okhttp3:logging-interceptor:4.9.1")
-    implementation ("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation ("com.squareup.okhttp3:okhttp:4.12.0")
     implementation ("com.squareup.picasso:picasso:2.71828")
 //    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.6")
 
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 //    >>>>>>> e809ea8c9d45a15491d6a664024c39cdcf5e981d
 }
