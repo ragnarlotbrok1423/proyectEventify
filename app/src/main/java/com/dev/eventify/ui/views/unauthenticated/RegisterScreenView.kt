@@ -33,9 +33,9 @@ import com.dev.eventify.ui.components.GradientPasswordField
 import com.dev.eventify.ui.components.GradientPhoneTextField
 import com.dev.eventify.ui.components.GradientTextFieldWithIcons
 import com.dev.eventify.ui.components.GradientTitleText
+import com.dev.eventify.ui.components.HugeSpace
 import com.dev.eventify.ui.components.IconBackButton
 import com.dev.eventify.ui.components.ImageMaxWidth
-import com.dev.eventify.ui.components.LargeSpace
 import com.dev.eventify.ui.components.MaxWidthText
 import com.dev.eventify.ui.components.MediumSpace
 import com.dev.eventify.ui.components.NavigationText
@@ -83,7 +83,7 @@ fun RegisterScreenView(
                         )
                 ) {
 
-                    LargeSpace()
+                    HugeSpace()
 
                     GradientTitleText(
                         text = stringResource(id = R.string.action_register),
@@ -93,6 +93,8 @@ fun RegisterScreenView(
                     SubTitleText(
                         text = stringResource(id = R.string.register_text),
                     )
+
+                    MediumSpace()
 
                     GradientTextFieldWithIcons(
                         stringResource(id = R.string.prompt_nickname),

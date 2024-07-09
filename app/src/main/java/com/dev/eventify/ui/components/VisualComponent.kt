@@ -1,6 +1,7 @@
 package com.dev.eventify.ui.components
 
 import android.os.Build.VERSION.SDK_INT
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
@@ -13,6 +14,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import coil.ImageLoader
+import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
@@ -20,6 +22,7 @@ import coil.request.ImageRequest
 import coil.size.Size
 import com.dev.eventify.R
 import com.dev.eventify.ui.themes.EventifyTheme
+import com.google.accompanist.drawablepainter.rememberDrawablePainter
 
 @Composable
 fun GifImage(
@@ -30,11 +33,7 @@ fun GifImage(
     val context = LocalContext.current
     val imageLoader = ImageLoader.Builder(context)
         .components {
-            if (SDK_INT >= 28) {
-                add(ImageDecoderDecoder.Factory())
-            } else {
-                add(GifDecoder.Factory())
-            }
+            add(ImageDecoderDecoder.Factory())
 
         }
         .build()
@@ -48,9 +47,9 @@ fun GifImage(
             imageLoader = imageLoader
         ),
         contentDescription = null,
+        contentScale = ContentScale.FillWidth,
         modifier = modifier,
     )
-
 }
 
 @Composable

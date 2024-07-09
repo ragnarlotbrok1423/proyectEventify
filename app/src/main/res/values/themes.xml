@@ -29,7 +29,7 @@
     <style name="Theme.Eventify" parent="Base.Theme.Eventify" />
 
     <!-- Splash Screen -->
-    <style name="Theme.EventifySplashScreenTheme" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.EventifySplashScreenTheme" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
     </style>
 

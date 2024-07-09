@@ -33,6 +33,7 @@ import com.dev.eventify.ui.components.GradientTextFieldWithIcons
 import com.dev.eventify.ui.components.GradientTitleText
 import com.dev.eventify.ui.components.IconBackButton
 import com.dev.eventify.ui.components.ImageMaxWidth
+import com.dev.eventify.ui.components.LargeSpace
 import com.dev.eventify.ui.components.MediumSpace
 import com.dev.eventify.ui.components.NavigationText
 import com.dev.eventify.ui.components.ScrollableColumn
@@ -72,7 +73,7 @@ fun LoginScreenView(
 
             ScrollableColumn {
                 ImageMaxWidth(img = R.drawable.login_sheep)
-//        GifImage(modifier = Modifier.fillMaxWidth(), R.drawable.welcome_sheep)
+//                GifImage(modifier = Modifier.fillMaxWidth(), R.drawable.welcome_sheep)
 
                 GapColumn(
                     modifier = Modifier
@@ -89,6 +90,7 @@ fun LoginScreenView(
                         text = stringResource(id = R.string.login_text),
                     )
 
+                    MediumSpace()
 
                     GradientTextFieldWithIcons(
                         stringResource(id = R.string.prompt_nickname),
@@ -120,7 +122,7 @@ fun LoginScreenView(
                         color = md_theme_light_onPrimaryContainer,
                     )
 
-                    MediumSpace()
+                    LargeSpace()
 
                     GradientButton(
                         text = stringResource(id = R.string.action_login),
