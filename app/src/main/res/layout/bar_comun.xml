@@ -43,6 +43,18 @@
                 android:layout_height="60dp"
                 android:background="@drawable/imagen_profile"
                 android:layout_margin="5dp"/>
+            <RelativeLayout
+                android:id="@+id/image_comunity_3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/imagen_profile"
+                android:layout_margin="5dp"/>
+            <RelativeLayout
+                android:id="@+id/image_comunity_4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/imagen_profile"
+                android:layout_margin="5dp"/>
 
             <!-- Añadir más elementos aquí según sea necesario -->
 
