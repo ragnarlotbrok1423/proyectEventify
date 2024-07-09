@@ -2,7 +2,6 @@ package com.dev.eventify.entities
 
 import com.dev.eventify.entities.models.FacultadesXpostsXprofesores
 import com.dev.eventify.entities.models.Post
-import com.dev.eventify.entities.models.PostResponse
 
 interface PostsInteractors {
     suspend fun createPost(title: String, description: String, image: String): Post?
