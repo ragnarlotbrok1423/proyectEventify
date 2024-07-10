@@ -35,6 +35,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import com.dev.eventify.R
 import com.dev.eventify.data.models.facultyModel
+import com.dev.eventify.entities.apiService.EventifyApiService
 import com.dev.eventify.ui.themes.DARKER_BLUE
 import com.dev.eventify.ui.themes.EventifyTheme
 
@@ -219,7 +220,8 @@ fun GradientPhoneTextField( imeAction: ImeAction = ImeAction.Next) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SelectTextField(label: String){
+fun SelectTextField(label: String, apiServer: EventifyApiService){
+
     val options = facultyModel
     var expanded by remember { mutableStateOf(false) }
     var selectedOptionText by remember { mutableStateOf(options[0]) }

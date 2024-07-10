@@ -6,9 +6,7 @@ import com.dev.eventify.entities.models.FacultadesXpostsXprofesores
 import com.dev.eventify.entities.models.GruposXpostXestudiantes
 import com.dev.eventify.entities.models.Materia
 import com.dev.eventify.entities.models.Post
-import com.dev.eventify.entities.models.PostResponse
 import com.dev.eventify.entities.models.Profesores
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
