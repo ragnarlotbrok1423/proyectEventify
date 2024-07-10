@@ -23,6 +23,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -226,12 +227,12 @@ fun FacultySelectTextField(label: String, facultadesViewModel: FacultadesViewMod
     var expanded by remember { mutableStateOf(false) }
 
     // si lista en kotlin
-    val options = getListOfFacultades()
-    var selectedOptionText by remember { mutableStateOf(options[0].nombreFacultad) }
+//    val options = getListOfFacultades()
+//    var selectedOptionText by remember { mutableStateOf(options[0].nombreFacultad) }
 
     // si lista en get
-//    val options by facultadesViewModel.facultades.observeAsState(emptyList())
-//    var selectedOptionText by remember { mutableStateOf("") }
+    val options by facultadesViewModel.facultades.observeAsState(emptyList())
+    var selectedOptionText by remember { mutableStateOf("") }
 
     ExposedDropdownMenuBox(
         expanded = expanded,
