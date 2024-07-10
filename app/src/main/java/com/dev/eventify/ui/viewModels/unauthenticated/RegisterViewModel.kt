@@ -19,6 +19,7 @@ class RegisterViewModel: ViewModel() {
     var registerState = mutableStateOf(RegisterState())
         private set
 
+
     fun onRegisterUiEvent(registerUiEvent: RegisterUiEvent){
         when(registerUiEvent){
             is RegisterUiEvent.NicknameChange -> {

@@ -41,6 +41,9 @@
     <string name="error_register_faculty">Choose a least one faculty</string>
     <string name="error_register_career">Choose a least one career</string>
     <string name="error_register_level">Choose a least one career level</string>
+    <string name="error_faculty">Can not get faculty</string>
+    <string name="error_network">Network Error</string>
+    <string name="error_retrive">Failed Retrieve</string>
 
     <!-- Text below Title -->
     <string name="onboard_screen_text">Want to check our college social events? Join us!</string>

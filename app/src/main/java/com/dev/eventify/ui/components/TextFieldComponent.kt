@@ -34,8 +34,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import com.dev.eventify.R
-import com.dev.eventify.data.models.facultyModel
-import com.dev.eventify.entities.apiService.EventifyApiService
+import com.dev.eventify.entities.models.getListOfFacultades
 import com.dev.eventify.ui.themes.DARKER_BLUE
 import com.dev.eventify.ui.themes.EventifyTheme
 
@@ -220,11 +219,11 @@ fun GradientPhoneTextField( imeAction: ImeAction = ImeAction.Next) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SelectTextField(label: String, apiServer: EventifyApiService){
+fun SelectTextField(label: String){
 
-    val options = facultyModel
+    val options = getListOfFacultades()
     var expanded by remember { mutableStateOf(false) }
-    var selectedOptionText by remember { mutableStateOf(options[0]) }
+    var selectedOptionText by remember { mutableStateOf(options[0].nombreFacultad) }
 
     ExposedDropdownMenuBox(
         expanded = expanded,
@@ -233,7 +232,7 @@ fun SelectTextField(label: String, apiServer: EventifyApiService){
         },
 
         ) {
-        TextField(
+         TextField(
             readOnly = true,
             value = selectedOptionText,
             onValueChange = { },
@@ -249,7 +248,7 @@ fun SelectTextField(label: String, apiServer: EventifyApiService){
                 .gradientBlueBg()
                 .menuAnchor()
                 .fillMaxWidth(),
-            shape = MaterialTheme.shapes.small
+            shape = MaterialTheme.shapes.small,
         )
         ExposedDropdownMenu(
             expanded = expanded,
@@ -261,9 +260,9 @@ fun SelectTextField(label: String, apiServer: EventifyApiService){
         ) {
             options.forEach { selectionOption ->
                 DropdownMenuItem(
-                    text = { Text(text = selectionOption) },
+                    text = { Text(text = selectionOption.nombreFacultad) },
                     onClick = {
-                        selectedOptionText = selectionOption
+                        selectedOptionText = selectionOption.nombreFacultad
                         expanded = false
                     },
                 )

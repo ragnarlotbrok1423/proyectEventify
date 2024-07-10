@@ -20,7 +20,10 @@ class MainActivity : AppCompatActivity() {
 //        enableEdgeToEdge()
         WindowCompat.setDecorFitsSystemWindows(window, true)
 
-        // muestra despues de splashscreen
+        //        inicia el servicio
+//        EventifyApiService.instance()
+
+        // se muestra despues de splashscreen
         setContent{
             MainApp()
         }

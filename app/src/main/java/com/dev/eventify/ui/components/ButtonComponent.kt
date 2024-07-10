@@ -72,7 +72,7 @@ fun OutlineButton(
         modifier = Modifier
             .roundedAnimatedShadow(MaterialTheme.shapes.extraLarge, mutableInteractionSource)
             .background(Color.Transparent, shape = MaterialTheme.shapes.extraLarge)
-            .border(2.dp, brush = GRA_HOR_BLACK_PURPLE, shape = MaterialTheme.shapes.extraLarge)
+            .border(2.dp, color = md_theme_light_onPrimary, shape = MaterialTheme.shapes.extraLarge)
             .fillMaxWidth(),
         colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
         shape = MaterialTheme.shapes.extraLarge

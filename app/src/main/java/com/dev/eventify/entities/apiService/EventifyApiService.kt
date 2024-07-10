@@ -7,6 +7,7 @@ import com.dev.eventify.entities.models.GruposXpostXestudiantes
 import com.dev.eventify.entities.models.Materia
 import com.dev.eventify.entities.models.Post
 import com.dev.eventify.entities.models.Profesores
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
@@ -33,6 +34,7 @@ interface EventifyApiService {
     suspend fun getProfessor(): Profesores
     @GET("api/Facultades")
     suspend fun getFacultades(): Facultades
+//    suspend fun getFacultades(): Call<Facultades>
     @GET("api/Materia")
     suspend fun getMaterial(): Materia
     @GET("api/GruposXpostXestudiantes")
@@ -42,9 +44,20 @@ interface EventifyApiService {
     @GET("api/facultadesXpostXprofesores/{id}")
     suspend fun getEspecificPublication(@Path("id") id: Int): FacultadesXpostsXprofesores
 
+//    companion object EventifyService{
+//        private const val baseUrl = "https://6148-201-227-106-208.ngrok-free.app/"
+//        fun instance(): EventifyApiService {
+//            val retrofit = Retrofit.Builder()
+//                .baseUrl(baseUrl)
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build()
+//
+//            return retrofit.create(EventifyApiService::class.java)
+//        }
+//    }
 }
 object EventifyService{
-    private const val baseUrl = "https://eventify.com/"
+    private const val baseUrl = "https://6148-201-227-106-208.ngrok-free.app/"
     val instance: EventifyApiService by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)

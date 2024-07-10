@@ -129,7 +129,6 @@ fun RegisterScreenView(
 
                     SelectTextField(
                         label = stringResource(id = R.string.prompt_faculty),
-
                         )
 
                     SelectTextField(label = stringResource(id = R.string.prompt_level))

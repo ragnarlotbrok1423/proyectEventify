@@ -5,7 +5,7 @@ import com.dev.eventify.entities.apiService.EventifyApiService
 import com.dev.eventify.entities.models.Estudiantes
 import com.dev.eventify.entities.models.GruposXpostXestudiantes
 
-class EstudianteInteractor(private val apiService: EventifyApiService): EstudiantesInterface{
+class EstudiantesInteractor(private val apiService: EventifyApiService): EstudiantesInterface{
     override suspend fun createEstudiantes(
         nickname: String,
         password: String,
