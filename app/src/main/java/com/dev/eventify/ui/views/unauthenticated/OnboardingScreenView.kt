@@ -79,10 +79,21 @@ fun OnboardingScreenView(
 
                 MediumSpace()
 
+                GradientButton(
+                    text = stringResource(R.string.action_register),
+                    gradient = GRA_HOR_BLACK_PURPLE,
+                    onClick = {
+                        navigateToRegistration.invoke()
+                    }
+                )
+
+                MediumSpace()
+
+
                 OutlineButton(
-                        text = stringResource(R.string.action_register),
+                        text = stringResource(R.string.action_anonymous),
                         onClick = {
-                            navigateToRegistration.invoke()
+                            navigateToAuthenticatedRoute.invoke()
                         }
                     )
                 }

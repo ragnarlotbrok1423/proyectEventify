@@ -28,6 +28,7 @@
     <!-- Buttons -->
     <string name="action_login">Sign In</string>
     <string name="action_register">Sign Up</string>
+    <string name="action_anonymous">Anonymous</string>
 
     <!-- Error prompt -->
     <string name="error_invalid_email_nickname">Email or nickname does not exist</string>

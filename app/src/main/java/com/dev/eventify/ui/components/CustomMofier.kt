@@ -20,11 +20,13 @@ import com.dev.eventify.R
 import com.dev.eventify.ui.themes.GRA_HOR_BLUE_PURPLE
 import com.dev.eventify.ui.themes.md_theme_light_error
 import com.dev.eventify.ui.themes.md_theme_light_errorContainer
+import com.dev.eventify.ui.themes.md_theme_light_inverseSurface
 import com.dev.eventify.ui.themes.md_theme_light_onPrimaryContainer
 import com.dev.eventify.ui.themes.md_theme_light_onSurfaceVariant
 import com.dev.eventify.ui.themes.md_theme_light_primary
 import com.dev.eventify.ui.themes.md_theme_light_secondaryContainer
 import com.dev.eventify.ui.themes.md_theme_light_shadow
+import com.dev.eventify.ui.themes.md_theme_light_surfaceTint
 
 @Composable
 fun Modifier.roundedAnimatedShadow(shape: Shape, mutableInteractionSource: MutableInteractionSource): Modifier {
@@ -64,7 +66,14 @@ fun Modifier.roundedShadow(shape: Shape): Modifier{
 @Composable
 fun Modifier.gradientBlueBg(): Modifier{
     return this then Modifier
-        .background(GRA_HOR_BLUE_PURPLE, shape = MaterialTheme.shapes.small)
+        .background(GRA_HOR_BLUE_PURPLE, shape = MaterialTheme.shapes.extraSmall)
+        .fillMaxWidth()
+}
+
+@Composable
+fun Modifier.transparentBg(): Modifier{
+    return this then Modifier
+        .background(Color.Transparent, shape = MaterialTheme.shapes.extraSmall)
         .fillMaxWidth()
 }
 
@@ -88,4 +97,22 @@ val TextInputColors: TextFieldColors
         errorLabelColor = md_theme_light_error,
     )
 
-
+val OutlinedTextInputColors: TextFieldColors
+    @Composable
+    get() = TextFieldDefaults.colors(
+        focusedTextColor = md_theme_light_onPrimaryContainer,
+        unfocusedTextColor = md_theme_light_secondaryContainer,
+        disabledTextColor = md_theme_light_onSurfaceVariant,
+        errorTextColor = md_theme_light_error,
+        focusedContainerColor = Color.Transparent,
+        unfocusedContainerColor = Color.Transparent,
+        errorContainerColor = md_theme_light_errorContainer,
+        focusedIndicatorColor = md_theme_light_inverseSurface,
+        unfocusedIndicatorColor = md_theme_light_surfaceTint,
+        disabledIndicatorColor = Color.Transparent,
+        errorIndicatorColor = Color.Transparent,
+        focusedLabelColor = md_theme_light_onPrimaryContainer,
+        unfocusedLabelColor = md_theme_light_primary,
+        disabledLabelColor = md_theme_light_onSurfaceVariant,
+        errorLabelColor = md_theme_light_error,
+    )

@@ -18,10 +18,13 @@ import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -33,10 +36,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dev.eventify.R
 import com.dev.eventify.entities.models.getListOfFacultades
 import com.dev.eventify.ui.themes.DARKER_BLUE
 import com.dev.eventify.ui.themes.EventifyTheme
+import com.dev.eventify.ui.viewModels.FacultadesViewModel
 
 ////////////////////
 //TextField
@@ -82,11 +87,10 @@ fun GradientTextFieldWithIcons(
         label = { Text(text = label) },
         placeholder = { Text(text = placeholder) },
         modifier = Modifier
-            .roundedShadow(MaterialTheme.shapes.small)
+            .roundedShadow(MaterialTheme.shapes.extraSmall)
             .gradientBlueBg(),
         colors = TextInputColors,
-        shape = MaterialTheme.shapes.small,
-//        isError =
+        shape = MaterialTheme.shapes.extraSmall,
     )
 }
 
@@ -164,10 +168,10 @@ fun GradientPasswordField(
         label = { Text(text = label) },
         placeholder = { Text(text = placeholder) },
         modifier = Modifier
-            .roundedShadow(MaterialTheme.shapes.small)
+            .roundedShadow(MaterialTheme.shapes.extraSmall)
             .gradientBlueBg(),
         colors = TextInputColors,
-        shape = MaterialTheme.shapes.small
+        shape = MaterialTheme.shapes.extraSmall
     )
 }
 
@@ -192,7 +196,7 @@ fun GradientPhoneTextField( imeAction: ImeAction = ImeAction.Next) {
             imeAction = imeAction
         ),
         modifier = Modifier
-            .roundedShadow(MaterialTheme.shapes.small)
+            .roundedShadow(MaterialTheme.shapes.extraSmall)
             .gradientBlueBg(),
         leadingIcon = {
             Icon(
@@ -212,18 +216,24 @@ fun GradientPhoneTextField( imeAction: ImeAction = ImeAction.Next) {
             }
         },
         colors = TextInputColors,
-        shape = MaterialTheme.shapes.small
+        shape = MaterialTheme.shapes.extraSmall
     )
 }
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SelectTextField(label: String){
+fun SelectTextField(label: String, facultadesViewModel: FacultadesViewModel = viewModel()){
 
-    val options = getListOfFacultades()
     var expanded by remember { mutableStateOf(false) }
+
+    // si lista en kotlin
+    val options = getListOfFacultades()
     var selectedOptionText by remember { mutableStateOf(options[0].nombreFacultad) }
+
+    // si lista en get
+//    val options by facultadesViewModel.facultades.observeAsState(emptyList())
+//    var selectedOptionText by remember { mutableStateOf("") }
 
     ExposedDropdownMenuBox(
         expanded = expanded,
@@ -232,23 +242,22 @@ fun SelectTextField(label: String){
         },
 
         ) {
-         TextField(
+         OutlinedTextField(
             readOnly = true,
             value = selectedOptionText,
-            onValueChange = { },
+            onValueChange = { selectedOptionText = it },
             label = { Text(label) },
             trailingIcon = {
                 ExposedDropdownMenuDefaults.TrailingIcon(
                     expanded = expanded
                 )
             },
-            colors = ExposedDropdownMenuDefaults.textFieldColors(),
+            colors = OutlinedTextInputColors,
             modifier = Modifier
-                .roundedShadow(MaterialTheme.shapes.small)
-                .gradientBlueBg()
-                .menuAnchor()
-                .fillMaxWidth(),
-            shape = MaterialTheme.shapes.small,
+//                .roundedShadow(MaterialTheme.shapes.extraSmall)
+                .transparentBg()
+                .menuAnchor(),
+            shape = MaterialTheme.shapes.extraSmall,
         )
         ExposedDropdownMenu(
             expanded = expanded,

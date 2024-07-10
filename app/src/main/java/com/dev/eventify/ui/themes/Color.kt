@@ -42,11 +42,13 @@ val md_theme_dark_primaryContainer = Color(0xFF321F46)
 // Named Basic Color
 val DARK_BLUE = Color(0xFF2A3673)
 val DARKER_BLUE = Color(0xFF060731)
+val LIGHT_PURPLE = Color(0xFFCED1FF)
 
 
 // Gradient Colors
 val GRA_HOR_BLACK_PURPLE = Brush.horizontalGradient(listOf(DARKER_BLUE, DARK_BLUE))
 val GRA_HOR_BLUE_PURPLE = Brush.horizontalGradient(listOf(md_theme_light_inversePrimary, md_theme_light_secondaryContainer))
+val GRA_HOR_WHITE_PURPLE = Brush.horizontalGradient(listOf(LIGHT_PURPLE, md_theme_light_secondaryContainer))
 
 val GRA_VER_BLACK_PURPLE = Brush.verticalGradient(listOf(DARKER_BLUE, DARK_BLUE))
 val GRA_VER_PURPLE_WHITE = Brush.verticalGradient(listOf(md_theme_light_surfaceTint, md_theme_light_onPrimary))
