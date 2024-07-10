@@ -25,12 +25,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dev.eventify.R
-import com.dev.eventify.entities.apiService.EventifyApiService
-import com.dev.eventify.entities.models.Facultades
-import com.dev.eventify.interactors.GetInteractor
 import com.dev.eventify.ui.components.ContextText
+import com.dev.eventify.ui.components.ExtraHugeSpace
 import com.dev.eventify.ui.components.GapColumn
-import com.dev.eventify.ui.components.SelectTextField
+import com.dev.eventify.ui.components.FacultySelectTextField
 import com.dev.eventify.ui.components.GradientButton
 import com.dev.eventify.ui.components.GradientPasswordField
 import com.dev.eventify.ui.components.GradientPhoneTextField
@@ -86,7 +84,7 @@ fun RegisterScreenView(
                         )
                 ) {
 
-                    HugeSpace()
+                    ExtraHugeSpace()
 
                     GradientTitleText(
                         text = stringResource(id = R.string.action_register),
@@ -127,13 +125,9 @@ fun RegisterScreenView(
 
                     GradientPhoneTextField()
 
-                    SelectTextField(
+                    FacultySelectTextField(
                         label = stringResource(id = R.string.prompt_faculty),
                         )
-
-                    SelectTextField(label = stringResource(id = R.string.prompt_level))
-
-                    SelectTextField(label = stringResource(id = R.string.prompt_career))
 
 
                     Column (
@@ -145,7 +139,7 @@ fun RegisterScreenView(
                         )
                     }
 
-                    MediumSpace()
+                    HugeSpace()
 
                     GradientButton(
                         text = stringResource(id = R.string.action_register),

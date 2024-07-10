@@ -27,3 +27,8 @@ fun HugeSpace(){
     Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.gap_huge)))
 }
 
+
+@Composable
+fun ExtraHugeSpace(){
+    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.gap_extra_huge)))
+}
