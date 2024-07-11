@@ -55,9 +55,9 @@ interface EventifyApiService {
     @GET("api/Facultades")
     suspend fun  getFacultades():Response<List<Facultades>>
     @GET("api/estudiantes")
-    suspend fun getEstudentLogin():Response<List<Estudiantes>>
+    suspend fun getEstudentLogin():Response<List<EstudiantesResponse>>
     @GET("api/profesores")
-    suspend fun getProfesorsLogin():Response<List<Profesores>>
+    suspend fun getProfesorsLogin():Response<List<ProfesoresResponse>>
 
     @GET("api/Materias")
     suspend fun getMaterias():Response<List<Materias>>

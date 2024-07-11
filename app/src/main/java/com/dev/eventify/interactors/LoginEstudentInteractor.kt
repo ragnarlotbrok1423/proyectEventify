@@ -6,7 +6,7 @@ import com.dev.eventify.entities.models.Result
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.Dispatchers
 class LoginEstudentInteractor(private val apiService: EventifyApiService) {
-    suspend fun  loginEstudent(nickName: String, password: String): Result<Estudiantes?> {
+    suspend fun  loginEstudent(nickName: String, password: String): Result<Pair<Int, Int>> {
         return withContext(Dispatchers.IO){
             try {
                 val response= apiService.getEstudentLogin()
@@ -14,7 +14,7 @@ class LoginEstudentInteractor(private val apiService: EventifyApiService) {
                     val estudiantes= response.body() ?: emptyList()
                     val estudiante= estudiantes.find{it.nickName == nickName && it.password == password}
                     if (estudiante !==null){
-                        Result(data=estudiante, error = null)
+                        Result(data=Pair(estudiante.estudiantesId,estudiante.userType) , error = null)
                     }else{
                         Result(data = null, error="Credenciales Incorrectas")
                     }

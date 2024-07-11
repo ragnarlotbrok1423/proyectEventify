@@ -10,10 +10,11 @@ data class Estudiantes(
     val nombreFacultad: String
 )
 data class EstudiantesResponse(
+    val estudiantesId: Int,
     val nickName: String,
     val password: String,
     val imagen: String?,
     val descripcion: String?,
-    val rol: Int,
+    val userType: Int,
     val facultadesId: Int,
 )
