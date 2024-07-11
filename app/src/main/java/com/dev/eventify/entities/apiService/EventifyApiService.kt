@@ -9,6 +9,8 @@ import com.dev.eventify.entities.models.Post
 import com.dev.eventify.entities.models.PostResponse
 import com.dev.eventify.entities.models.Profesores
 import com.dev.eventify.entities.models.ProfesoresResponse
+import com.dev.eventify.entities.models.Valoraciones
+import com.dev.eventify.entities.models.ValoracionesResponse
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -58,6 +60,24 @@ interface EventifyApiService {
     suspend fun getEstudentLogin():Response<List<EstudiantesResponse>>
     @GET("api/profesores")
     suspend fun getProfesorsLogin():Response<List<ProfesoresResponse>>
+
+    @POST ("api/Valoraciones")
+    suspend fun createValoracion(
+        @Query("valoracion") valoracion: Int,
+        @Query("comentario") comentario:String?,
+    ): Response<ValoracionesResponse>
+
+    @POST ("api/ValoracionesXestudiantesXprofesores")
+    suspend fun createIncognitePost(
+        @Query("estudianteId") estudianteId:Int,
+        @Query("profesorId") profesorId:Int,
+        @Query("valoracionId") valoracionId:Int,
+    ): Response<Void>
+
+    @GET("api/ValoracionesXestudiantesXprofesores")
+    suspend fun profesoresXcalificacion(
+        @Query("profesorId") profesorId:Int,
+    ):Response<List<ValoracionesResponse>>
 
     @GET("api/Materias")
     suspend fun getMaterias():Response<List<Materias>>
