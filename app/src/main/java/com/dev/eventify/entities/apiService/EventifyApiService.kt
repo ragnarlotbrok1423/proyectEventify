@@ -4,6 +4,7 @@ import com.dev.eventify.entities.models.Estudiantes
 import com.dev.eventify.entities.models.EstudiantesResponse
 import com.dev.eventify.entities.models.Facultades
 import com.dev.eventify.entities.models.FacultadesXpostsXprofesores
+import com.dev.eventify.entities.models.Materias
 import com.dev.eventify.entities.models.Post
 import com.dev.eventify.entities.models.PostResponse
 import com.dev.eventify.entities.models.Profesores
@@ -40,9 +41,22 @@ interface EventifyApiService {
     @GET("api/estudiantes")
     suspend fun getEstudiantes():Estudiantes
     @POST ("api/profesores")
-    suspend fun postProfesores(@Body profesores: ProfesoresResponse):Profesores
+
+    suspend fun createProfesors(
+        @Query("nombre") nombre:String,
+        @Query("apellido") apellido:String,
+        @Query("email") email:String,
+        @Query("password") password: String,
+        @Query("userType") userType:Int,
+        @Query("imagen") imagen:String?,
+        @Query("descripcion") descripcion:String?
+
+    ):Response<Void>
     @GET("api/Facultades")
     suspend fun  getFacultades():Response<List<Facultades>>
+
+    @GET("api/Materias")
+    suspend fun getMaterias():Response<List<Materias>>
 }
 object EventifyService{
     private const val baseUrl = "https://eventify.com/"
