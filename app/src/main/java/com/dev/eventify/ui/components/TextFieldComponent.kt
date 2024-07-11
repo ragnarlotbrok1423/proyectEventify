@@ -22,11 +22,9 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -37,15 +35,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dev.eventify.R
-import com.dev.eventify.entities.models.Facultades
 import com.dev.eventify.entities.models.getListOfFacultades
-import com.dev.eventify.presenters.fetchFacultades
 import com.dev.eventify.ui.themes.EventifyTheme
 import com.dev.eventify.ui.themes.LIGHT_PURPLE
-import com.dev.eventify.ui.viewModels.FacultadesViewModel
-import kotlinx.coroutines.launch
 
 ////////////////////
 //TextField
@@ -297,6 +290,12 @@ fun FacultySelectTextField(
                 .transparentBg()
                 .menuAnchor(),
             shape = MaterialTheme.shapes.extraSmall,
+             isError = isError,
+             supportingText = {
+                 if (isError) {
+                     ErrorTextField(text = errorText)
+                 }
+             }
         )
         ExposedDropdownMenu(
             expanded = expanded,
