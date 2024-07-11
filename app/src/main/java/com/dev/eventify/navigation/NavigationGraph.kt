@@ -157,6 +157,13 @@ fun NavGraphBuilder.authenticatedGraph(navController: NavController){
     ){
         composable(route = NavigationRoutes.Authenticated.UserProfile.route){
             UserProfileView(
+                navigateToUnauthenticatedRoute ={
+                    navController.navigate(route = NavigationRoutes.Unauthenticated.DestinationRoute.route){
+                        popUpTo(route = NavigationRoutes.Authenticated.DestinationRoute.route){
+                            inclusive = true
+                        }
+                    }
+                },
                 navigateBack = {
                     navController.navigateUp()
                 },

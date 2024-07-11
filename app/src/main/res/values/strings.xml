@@ -75,5 +75,11 @@
     <!-- labels -->
     <string name="label_elevation">elevation</string>
 
+    <!-- xml component   -->
+    <string name="username">Mark</string>
+    <string name="faculty">faculty</string>
+    <string name="market">market</string>
+    <string name="description_market">description_market</string>
+
 
 </resources>
