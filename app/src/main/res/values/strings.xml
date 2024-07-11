@@ -4,6 +4,8 @@
     <!-- Titles   -->
     <string name="title_activity_login">Welcome Back!</string>
     <string name="title_activity_register">Register</string>
+    <string name="title_activity_register_student">Student Sign Up</string>
+    <string name="title_activity_register_professor">Professor Sign Up</string>
 
     <!-- Prompts -->
     <string name="prompt_nickname">Username</string>
@@ -14,6 +16,8 @@
     <string name="prompt_faculty">Faculty</string>
     <string name="prompt_career">Career</string>
     <string name="prompt_level">Level</string>
+    <string name="prompt_name">Name</string>
+    <string name="prompt_surname">Surname</string>
 
     <!-- Focused Prompts -->
     <string name="focused_nickname">"Enter your username</string>
@@ -24,6 +28,8 @@
     <string name="focused_faculty">"Enter your current faculty</string>
     <string name="focused_career">"Enter your current career</string>
     <string name="focused_level">"Enter your current level</string>
+    <string name="focused_name">"Enter your name</string>
+    <string name="focused_surname">"Enter your surname</string>
 
     <!-- Buttons -->
     <string name="action_login">Sign In</string>

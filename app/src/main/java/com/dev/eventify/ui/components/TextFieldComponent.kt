@@ -23,10 +23,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -34,34 +32,36 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dev.eventify.R
 import com.dev.eventify.entities.models.getListOfFacultades
-import com.dev.eventify.ui.themes.DARKER_BLUE
 import com.dev.eventify.ui.themes.EventifyTheme
+import com.dev.eventify.ui.themes.LIGHT_PURPLE
 import com.dev.eventify.ui.viewModels.FacultadesViewModel
 
 ////////////////////
 //TextField
 
 @Composable
-fun GradientTextFieldWithIcons(
+fun GradientTextField(
     label: String,
     placeholder: String,
     icons : ImageVector,
     inputType: KeyboardType,
-//    value: String,
-//    onValueChange: (String) -> Unit,
+    value: String = "",
+    onValueChange: (String) -> Unit = {},
+    isError: Boolean = false,
+    errorText: String = "",
     imeAction: ImeAction = ImeAction.Next
 ) {
-    var text by remember { mutableStateOf("") }
+//    var text by remember { mutableStateOf("") }
 
     return TextField(
-        value = text,
-        onValueChange = {
-            text = it
-        },
+        value = value,
+        onValueChange = onValueChange,
         singleLine = true,
         leadingIcon = {
             Icon(
@@ -69,12 +69,12 @@ fun GradientTextFieldWithIcons(
                 contentDescription = null
             ) },
         trailingIcon = {
-            if (text.isNotBlank()) {
-                IconButton(onClick = { text = "" }) {
+            if (value.isNotBlank()) {
+                IconButton(onClick = { onValueChange("") }) {
                     Icon(
                         imageVector = Icons.Rounded.Close,
                         contentDescription = "clear",
-                        tint = DARKER_BLUE
+                        tint = LIGHT_PURPLE
                     )
                 }
             }
@@ -90,6 +90,12 @@ fun GradientTextFieldWithIcons(
             .gradientBlueBg(),
         colors = TextInputColors,
         shape = MaterialTheme.shapes.extraSmall,
+        isError = isError,
+        supportingText = {
+            if (isError) {
+                ErrorTextField(text = errorText)
+            }
+        }
     )
 }
 
@@ -131,18 +137,20 @@ fun GradientPasswordField(
     label: String,
     placeholder: String,
     icons : ImageVector,
+    value: String = "",
+    onValueChange: (String) -> Unit = {},
+    isError: Boolean = false,
+    errorText: String = "",
     imeAction: ImeAction = ImeAction.Done
 ) {
 
-    var password by remember { mutableStateOf("") }
+//    var password by remember { mutableStateOf("") }
 
     var passwordVisible by remember { mutableStateOf(false) }
 
     return TextField(
-        value = password,
-        onValueChange = {
-            password = it
-        },
+        value = value,
+        onValueChange = onValueChange,
         singleLine = true,
         leadingIcon = {
             Icon(
@@ -157,7 +165,7 @@ fun GradientPasswordField(
             val description = if (passwordVisible) "Hide password" else "Show password"
 
             IconButton(onClick = {passwordVisible = !passwordVisible}){
-                Icon(imageVector  = image, description, tint = DARKER_BLUE)
+                Icon(imageVector  = image, description, tint = LIGHT_PURPLE)
             }
         },
         keyboardOptions = KeyboardOptions(
@@ -170,19 +178,37 @@ fun GradientPasswordField(
             .roundedShadow(MaterialTheme.shapes.extraSmall)
             .gradientBlueBg(),
         colors = TextInputColors,
-        shape = MaterialTheme.shapes.extraSmall
+        shape = MaterialTheme.shapes.extraSmall,
+        visualTransformation =
+            if (passwordVisible)
+                    VisualTransformation.None
+            else
+                PasswordVisualTransformation(),
+        isError = isError,
+        supportingText = {
+            if (isError) {
+                ErrorTextField(text = errorText)
+            }
+        }
     )
 }
 
 @Composable
-fun GradientPhoneTextField( imeAction: ImeAction = ImeAction.Next) {
-    var phoneNumber by rememberSaveable { mutableStateOf("") }
+fun GradientPhoneTextField(
+    value: String = "",
+    onValueChange: (String) -> Unit = {},
+    isError: Boolean = false,
+    errorText: String = "",
+    imeAction: ImeAction = ImeAction.Next
+) {
+//    var phoneNumber by rememberSaveable { mutableStateOf("") }
     val numericRegex = Regex("[^0-9]")
     TextField(
-        value = phoneNumber,
+        value = value,
         onValueChange = {
+            var number = onValueChange.toString()
             val stripped = numericRegex.replace(it, "")
-            phoneNumber = if (stripped.length >= 10) {
+            number = if (stripped.length >= 10) {
                 stripped.substring(0..9)
             } else {
                 stripped
@@ -204,35 +230,55 @@ fun GradientPhoneTextField( imeAction: ImeAction = ImeAction.Next) {
             )
         },
         trailingIcon = {
-            if (phoneNumber.isNotBlank()) {
-                IconButton(onClick = { phoneNumber = "" }) {
+            if (value.isNotBlank()) {
+                IconButton(onClick = { onValueChange("") }) {
                     Icon(
                         imageVector = Icons.Rounded.Close,
                         contentDescription = "clear",
-                        tint = DARKER_BLUE
+                        tint = LIGHT_PURPLE
                     )
                 }
             }
         },
         colors = TextInputColors,
-        shape = MaterialTheme.shapes.extraSmall
+        shape = MaterialTheme.shapes.extraSmall,
+        isError = isError,
+        supportingText = {
+            if (isError) {
+                ErrorTextField(text = errorText)
+            }
+        }
     )
 }
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FacultySelectTextField(label: String, facultadesViewModel: FacultadesViewModel = viewModel()){
+fun FacultySelectTextField(
+    label: String,
+    facultadesViewModel: FacultadesViewModel = viewModel(),
+    value: String = "",
+    onValueChange: (String) -> Unit = {},
+){
 
     var expanded by remember { mutableStateOf(false) }
 
     // si lista en kotlin
-//    val options = getListOfFacultades()
-//    var selectedOptionText by remember { mutableStateOf(options[0].nombreFacultad) }
+    val options = getListOfFacultades()
+    var selectedOptionText by remember { mutableStateOf(options[0].nombreFacultad) }
 
     // si lista en get
-    val options by facultadesViewModel.facultades.observeAsState(emptyList())
-    var selectedOptionText by remember { mutableStateOf("") }
+//    val options by facultadesViewModel.facultades.observeAsState(emptyList())
+//    var selectedOptionText by remember { mutableStateOf("") }
+
+//    var options by remember { mutableStateOf(listOf<Facultades>()) }
+//    var selectedOptionText by remember { mutableStateOf("") }
+
+//    LaunchedEffect(Unit) {
+//        fetchFacultades { fetchedFacultades ->
+//            options = fetchedFacultades
+//        }
+//    }
 
     ExposedDropdownMenuBox(
         expanded = expanded,
@@ -289,7 +335,7 @@ fun TextFieldComponentPreview(){
             horizontal = dimensionResource(id = R.dimen.padding_medium),
         ),) {
 
-            GradientTextFieldWithIcons(
+            GradientTextField(
                 "Username",
                 "Enter your username",
                 Icons.Default.Email,

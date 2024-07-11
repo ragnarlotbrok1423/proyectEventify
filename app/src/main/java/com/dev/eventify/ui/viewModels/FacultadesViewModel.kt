@@ -20,7 +20,7 @@ class FacultadesViewModel: ViewModel() {
     private fun fetchFacultades() {
         viewModelScope.launch {
             try {
-                val response = EventifyService.instance.getFacultades()
+                val response = EventifyService.instance.getFacultad()
                 _facultades.value = listOf(response)
             } catch (e: Exception) {
                 // Handle error

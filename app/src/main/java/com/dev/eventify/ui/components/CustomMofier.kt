@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import com.dev.eventify.R
-import com.dev.eventify.ui.themes.GRA_HOR_BLUE_PURPLE
+import com.dev.eventify.ui.themes.GRA_HOR_LIGHT_PURPLE
 import com.dev.eventify.ui.themes.md_theme_light_error
 import com.dev.eventify.ui.themes.md_theme_light_errorContainer
 import com.dev.eventify.ui.themes.md_theme_light_inverseSurface
@@ -66,7 +66,7 @@ fun Modifier.roundedShadow(shape: Shape): Modifier{
 @Composable
 fun Modifier.gradientBlueBg(): Modifier{
     return this then Modifier
-        .background(GRA_HOR_BLUE_PURPLE, shape = MaterialTheme.shapes.extraSmall)
+        .background(GRA_HOR_LIGHT_PURPLE, shape = MaterialTheme.shapes.extraSmall)
         .fillMaxWidth()
 }
 

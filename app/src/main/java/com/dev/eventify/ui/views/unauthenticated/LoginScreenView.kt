@@ -29,7 +29,7 @@ import com.dev.eventify.ui.components.ContextText
 import com.dev.eventify.ui.components.GapColumn
 import com.dev.eventify.ui.components.GradientButton
 import com.dev.eventify.ui.components.GradientPasswordField
-import com.dev.eventify.ui.components.GradientTextFieldWithIcons
+import com.dev.eventify.ui.components.GradientTextField
 import com.dev.eventify.ui.components.GradientTitleText
 import com.dev.eventify.ui.components.IconBackButton
 import com.dev.eventify.ui.components.ImageMaxWidth
@@ -92,7 +92,7 @@ fun LoginScreenView(
 
                     MediumSpace()
 
-                    GradientTextFieldWithIcons(
+                    GradientTextField(
                         stringResource(id = R.string.prompt_nickname),
                         stringResource(id = R.string.focused_nickname),
                         Icons.Rounded.Person,

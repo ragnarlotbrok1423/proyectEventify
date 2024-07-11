@@ -10,8 +10,6 @@ data class RegisterState (
     val oldPassword: String = "",
     val phoneNumber: String = "",
     val faculty: String = "",
-    val career: String = "",
-    val level: String = "",
     val errorState: RegisterErrorState = RegisterErrorState(),
     val isRegisterSuccessful : Boolean = false
     )
@@ -23,6 +21,4 @@ data class RegisterErrorState(
     val oldPasswordErrorState: ErrorState = ErrorState(),
     val phoneNumberErrorState: ErrorState = ErrorState(),
     val facultyErrorState: ErrorState = ErrorState(),
-    val careerErrorState: ErrorState = ErrorState(),
-    val levelErrorState: ErrorState = ErrorState()
     )

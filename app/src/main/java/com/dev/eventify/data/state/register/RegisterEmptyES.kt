@@ -27,13 +27,3 @@ val facultyEmptyErrorState = ErrorState(
     hasError = true,
     errorMessage = R.string.error_register_faculty
 )
-
-val careerEmptyErrorState = ErrorState(
-    hasError = true,
-    errorMessage = R.string.error_register_career
-)
-
-val levelEmptyErrorState = ErrorState(
-    hasError = true,
-    errorMessage = R.string.error_register_level
-)

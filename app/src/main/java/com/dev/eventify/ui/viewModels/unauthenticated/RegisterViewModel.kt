@@ -6,10 +6,8 @@ import com.dev.eventify.data.state.ErrorState
 import com.dev.eventify.data.state.register.RegisterErrorState
 import com.dev.eventify.data.state.register.RegisterState
 import com.dev.eventify.data.state.register.RegisterUiEvent
-import com.dev.eventify.data.state.register.careerEmptyErrorState
 import com.dev.eventify.data.state.register.emailEmptyErrorState
 import com.dev.eventify.data.state.register.facultyEmptyErrorState
-import com.dev.eventify.data.state.register.levelEmptyErrorState
 import com.dev.eventify.data.state.register.nicknameEmptyErrorState
 import com.dev.eventify.data.state.register.passwordEmptyErrorState
 import com.dev.eventify.data.state.register.phoneNumberEmptyErrorState
@@ -82,30 +80,6 @@ class RegisterViewModel: ViewModel() {
                 )
             }
 
-            is RegisterUiEvent.CareerChange -> {
-                registerState.value = registerState.value.copy(
-                    career = registerUiEvent.inputValue,
-                    errorState = registerState.value.errorState.copy(
-                        careerErrorState = if(registerUiEvent.inputValue.trim().isNotEmpty())
-                            ErrorState()
-                        else
-                            careerEmptyErrorState
-                    )
-                )
-            }
-
-            is RegisterUiEvent.LevelChange -> {
-                registerState.value = registerState.value.copy(
-                    level = registerUiEvent.inputValue,
-                    errorState = registerState.value.errorState.copy(
-                        levelErrorState = if(registerUiEvent.inputValue.trim().isNotEmpty())
-                            ErrorState()
-                        else
-                            levelEmptyErrorState
-                    )
-                )
-            }
-
             is RegisterUiEvent.Submit -> {
                 val inputValidated = validateInputs()
                 if(inputValidated)
@@ -120,8 +94,6 @@ class RegisterViewModel: ViewModel() {
         val password = registerState.value.password
         val phoneNumber = registerState.value.phoneNumber.trim()
         val faculty = registerState.value.faculty.trim()
-        val career = registerState.value.career.trim()
-        val level = registerState.value.level.trim()
         return when {
     
             nickname.isEmpty() -> {
@@ -155,20 +127,6 @@ class RegisterViewModel: ViewModel() {
             faculty.isEmpty() -> {
                 registerState.value = registerState.value.copy(
                     errorState = RegisterErrorState(facultyErrorState = facultyEmptyErrorState)
-                )
-                false
-            }
-
-            career.isEmpty() -> {
-                registerState.value = registerState.value.copy(
-                    errorState = RegisterErrorState(careerErrorState = careerEmptyErrorState)
-                )
-                false
-            }
-
-            level.isEmpty() -> {
-                registerState.value = registerState.value.copy(
-                    errorState = RegisterErrorState(levelErrorState = levelEmptyErrorState)
                 )
                 false
             }

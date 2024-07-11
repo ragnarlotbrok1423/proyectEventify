@@ -7,7 +7,7 @@ import androidx.navigation.compose.navigation
 import com.dev.eventify.ui.views.authenticated.UserProfileView
 import com.dev.eventify.ui.views.unauthenticated.LoginScreenView
 import com.dev.eventify.ui.views.unauthenticated.OnboardingScreenView
-import com.dev.eventify.ui.views.unauthenticated.RegisterScreenView
+import com.dev.eventify.ui.views.unauthenticated.RegisterProfessorScreenView
 
 /**
  * viajar en Login, registration, forgot password
@@ -54,9 +54,9 @@ fun NavGraphBuilder.unauthenticatedGraph(navController: NavController){
 
                 navigateToAuthenticatedRoute = {
                     navController.navigate(route = NavigationRoutes.Authenticated.DestinationRoute.route){
-//                        popUpTo(route = NavigationRoutes.Unauthenticated.DestinationRoute.route){
-//                           inclusive = true
-//                        }
+                        popUpTo(route = NavigationRoutes.Unauthenticated.DestinationRoute.route){
+                           inclusive = true
+                        }
                     }
                 },
 
@@ -69,17 +69,17 @@ fun NavGraphBuilder.unauthenticatedGraph(navController: NavController){
 
         // register
         composable(route = NavigationRoutes.Unauthenticated.Register.route) {
-            RegisterScreenView(
+            RegisterProfessorScreenView(
 
                 navigateToLogin = {
                     navController.navigate(route = NavigationRoutes.Unauthenticated.Login.route)
                 },
 
                 navigateToAuthenticatedRoute = {
-                    navController.navigate(route = NavigationRoutes.Authenticated.DestinationRoute.route){
-//                        popUpTo(route = NavigationRoutes.Unauthenticated.DestinationRoute.route){
-//                            inclusive = true
-//                        }
+                    navController.navigate(route = NavigationRoutes.Unauthenticated.Login.route){
+                        popUpTo(route = NavigationRoutes.Unauthenticated.DestinationRoute.route){
+                            inclusive = true
+                        }
                     }
                 },
 

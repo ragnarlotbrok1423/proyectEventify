@@ -6,6 +6,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -17,6 +18,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -90,7 +92,7 @@ fun OutlineButton(
 @Composable
 fun IconBackButton(onClick: () -> Unit, color: Color){
     val zIndex = 3f
-    OutlinedButton(
+    OutlinedIconButton(
         onClick = onClick,
         shape = CircleShape,
         modifier = Modifier
@@ -102,8 +104,13 @@ fun IconBackButton(onClick: () -> Unit, color: Color){
             imageVector = Icons.Outlined.ArrowBackIosNew,
             contentDescription = null,
             tint = color,
+            modifier = Modifier
+                .padding(dimensionResource(id = R.dimen.padding_small))
+                .fillMaxSize()
             )
     }
+
+
 }
 
 @Preview

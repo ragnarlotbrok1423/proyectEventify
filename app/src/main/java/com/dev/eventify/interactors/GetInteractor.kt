@@ -14,7 +14,7 @@ class GetInteractor (private val apiService: EventifyApiService): GetInterface {
 
     override suspend fun getFacultades(): Facultades?{
         return try{
-            apiService.getFacultades()
+            apiService.getFacultad()
         }
         catch (e: Exception){
             error(e)

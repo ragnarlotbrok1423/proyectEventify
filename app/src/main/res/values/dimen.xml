@@ -40,6 +40,6 @@
 
     <dimen name="box_size">50dp</dimen>
 
-    <dimen name="icon_button">40dp</dimen>
-    <dimen name="icon_border">3dp</dimen>
+    <dimen name="icon_button">50dp</dimen>
+    <dimen name="icon_border">2dp</dimen>
 </resources>

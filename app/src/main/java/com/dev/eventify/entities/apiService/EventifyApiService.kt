@@ -33,8 +33,9 @@ interface EventifyApiService {
     @GET("api/Profesores")
     suspend fun getProfessor(): Profesores
     @GET("api/Facultades")
-    suspend fun getFacultades(): Facultades
-//    suspend fun getFacultades(): Call<Facultades>
+    suspend fun getFacultad(): Facultades
+    @GET("api/Facultades")
+    suspend fun getFacultades(): Call<List<Facultades>>
     @GET("api/Materia")
     suspend fun getMaterial(): Materia
     @GET("api/GruposXpostXestudiantes")
@@ -43,21 +44,9 @@ interface EventifyApiService {
     suspend fun getPublication(): FacultadesXpostsXprofesores
     @GET("api/facultadesXpostXprofesores/{id}")
     suspend fun getEspecificPublication(@Path("id") id: Int): FacultadesXpostsXprofesores
-
-//    companion object EventifyService{
-//        private const val baseUrl = "https://6148-201-227-106-208.ngrok-free.app/"
-//        fun instance(): EventifyApiService {
-//            val retrofit = Retrofit.Builder()
-//                .baseUrl(baseUrl)
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build()
-//
-//            return retrofit.create(EventifyApiService::class.java)
-//        }
-//    }
 }
 object EventifyService{
-    private const val baseUrl = "http://localhost:5224"
+    private const val baseUrl = "https://3c6c-201-227-106-208.ngrok-free.app"
     val instance: EventifyApiService by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
