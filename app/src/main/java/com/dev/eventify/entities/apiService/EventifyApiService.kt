@@ -9,6 +9,7 @@ import com.dev.eventify.entities.models.Post
 import com.dev.eventify.entities.models.PostResponse
 import com.dev.eventify.entities.models.Profesores
 import com.dev.eventify.entities.models.ProfesoresResponse
+import com.dev.eventify.entities.models.Valoraciones
 import com.dev.eventify.entities.models.ValoracionesResponse
 import retrofit2.Call
 import retrofit2.Response
@@ -72,6 +73,11 @@ interface EventifyApiService {
         @Query("profesorId") profesorId:Int,
         @Query("valoracionId") valoracionId:Int,
     ): Response<Void>
+
+    @GET("api/ValoracionesXestudiantesXprofesores")
+    suspend fun profesoresXcalificacion(
+        @Query("profesorId") profesorId:Int,
+    ):Response<List<ValoracionesResponse>>
 
     @GET("api/Materias")
     suspend fun getMaterias():Response<List<Materias>>
