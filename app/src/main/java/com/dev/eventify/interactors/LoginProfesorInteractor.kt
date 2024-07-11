@@ -7,7 +7,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class LoginProfesorInteractor (private val apiService: EventifyApiService){
-    suspend fun loginProfesor(email: String, password: String): Result<Profesores>{
+    suspend fun loginProfesor(email: String, password: String): Result<Pair<Int, Int>>{
         return withContext(Dispatchers.IO){
             try {
                 val response= apiService.getProfesorsLogin()
@@ -15,7 +15,7 @@ class LoginProfesorInteractor (private val apiService: EventifyApiService){
                     val profesores= response.body() ?: emptyList()
                     val profesor= profesores.find { it.email == email && it.password==password }
                     if(profesor!=null){
-                        Result(data = profesor, error = null)
+                        Result(data = Pair(profesor.profesoresId, profesor.UserTypeId), error = null)
                     }else{
                         Result(data = null, error="Credenciales Incorrectas")
                     }

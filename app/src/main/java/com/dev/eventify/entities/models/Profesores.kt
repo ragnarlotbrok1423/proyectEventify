@@ -11,6 +11,7 @@ data class Profesores(
     val descripcion: String
 )
 data class ProfesoresResponse(
+    val profesoresId: Int,
     val nombre: String,
     val apellido: String,
     val email: String,
