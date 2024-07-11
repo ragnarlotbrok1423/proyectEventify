@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="4dp"
+    android:padding="16dp">
+
+    <RelativeLayout
+        android:id="@+id/userTextLayout"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="156dp"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="@string/username"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/username"
+            android:layout_marginTop="1dp"
+            android:text="@string/faculty"
+            android:textColor="#888888"
+            android:textSize="16sp" />
+
+        <RelativeLayout
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/username"
+            android:layout_marginTop="29dp"
+            android:background="@drawable/light_gray_container"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/market"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView2"
+                android:layout_marginTop="0dp"
+                android:text="@string/description_market"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="145dp"
+        android:layout_height="137dp"
+        android:layout_alignTop="@+id/relativeLayout3"
+        android:layout_marginStart="-150dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/userTextLayout"
+        android:foreground="@drawable/circle_green" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="217dp"
+        android:layout_height="176dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="175dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="3dp"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="186dp"
+            android:layout_height="145dp"
+            android:foreground="@drawable/wap" />
+
+        <Button
+            android:layout_width="98dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageView"
+            android:layout_alignStart="@+id/imageView"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="-48dp"
+            android:backgroundTint="#6750A4"
+            android:contentDescription="Follow"
+            android:paddingStart="8dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="2dp"
+            android:text="Follow"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp"
+            app:cornerRadius="50dp" />
+    </RelativeLayout>
+</RelativeLayout>

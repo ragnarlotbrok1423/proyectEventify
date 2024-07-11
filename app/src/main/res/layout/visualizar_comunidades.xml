@@ -1,0 +1,162 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/header_v_comunidad" />
+
+    <!-- Rectángulo negro -->
+    <RelativeLayout
+        android:id="@+id/rectangulo_negro"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/border_emprendedor">
+
+        <!-- Botón -->
+        <Button
+            android:id="@+id/btnVolver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/border_button"
+            android:paddingStart="20dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="8dp"
+            android:text="Volver"
+            android:gravity="center"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Comunidad"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+
+        <ImageButton
+            android:id="@+id/btnAñadir"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_toEndOf="@id/btnVolver"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="170dp"
+            android:background="@drawable/border_button"
+            android:padding="8dp"
+            android:src="@drawable/ic_add"
+            android:scaleType="fitCenter" />
+    </RelativeLayout>
+
+    <!-- Rectángulo azul -->
+    <RelativeLayout
+        android:id="@+id/rectangulo_azul"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rectangulo_negro"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/border_background_emp">
+
+        <!-- Cards dentro del rectángulo azul -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Card 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/border_card"
+                android:padding="16dp">
+
+                <!-- Imagen -->
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/alianza"
+                    android:scaleType="centerCrop"/>
+
+                <!-- Contenido -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+
+                    <!-- Nombre -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Alianza Estudiantil"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:textSize="20sp"/>
+
+                    <!-- Descripción -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Asociación estudiantil de la UTP encargada por estudiantes"
+                        android:textColor="#000000"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Card 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/border_card"
+                android:padding="16dp"
+                android:layout_marginTop="16dp">
+
+                <!-- Imagen -->
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/geshk"
+                    android:scaleType="centerCrop"/>
+
+                <!-- Contenido -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+
+                    <!-- Nombre -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="GESHK"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:textSize="20sp"/>
+
+                    <!-- Descripción -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Emprendimiento llevado a cabo por Erick al cuadrado y un gio"
+                        android:textColor="#000000"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Puedes seguir añadiendo más cards según sea necesario -->
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
