@@ -57,7 +57,7 @@ interface EventifyApiService {
 //    }
 }
 object EventifyService{
-    private const val baseUrl = "https://6148-201-227-106-208.ngrok-free.app/"
+    private const val baseUrl = "http://localhost:5224"
     val instance: EventifyApiService by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
