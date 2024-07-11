@@ -111,7 +111,7 @@ fun ErrorTextField(
     Text(
         modifier = modifier,
         text = text,
-        style = MaterialTheme.typography.bodyMedium,
+        style = MaterialTheme.typography.labelMedium,
         color = MaterialTheme.colorScheme.error
     )
 }

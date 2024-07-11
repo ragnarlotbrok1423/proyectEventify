@@ -7,7 +7,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 suspend fun fetchFacultades(onResult: (List<Facultades>) -> Unit) {
-    val call = EventifyService.instance.getFacultades()
+    val call = EventifyService.instance.getAllFacultades()
     call.enqueue(object : Callback<List<Facultades>> {
 
 
@@ -17,6 +17,8 @@ suspend fun fetchFacultades(onResult: (List<Facultades>) -> Unit) {
         ) {
             if (response.isSuccessful) {
                 response.body()?.let { onResult(it) }
+//                val facultadesList = response.body()
+//                facultadesList?.forEach { facultades -> println("facultad: ${facultades.nombreFacultad}")
             }
         }
 

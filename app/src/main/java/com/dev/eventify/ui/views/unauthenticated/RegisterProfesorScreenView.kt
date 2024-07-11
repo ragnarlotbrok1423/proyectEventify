@@ -21,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
@@ -29,7 +30,12 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.dev.eventify.R
+import com.dev.eventify.data.validateConfirmPassword
+import com.dev.eventify.data.validateEmail
+import com.dev.eventify.data.validateInput
+import com.dev.eventify.data.validatePassword
 import com.dev.eventify.entities.models.Profesores
+import com.dev.eventify.presenters.postProfesor
 import com.dev.eventify.ui.components.ContextText
 import com.dev.eventify.ui.components.ExtraHugeSpace
 import com.dev.eventify.ui.components.GapColumn
@@ -50,6 +56,7 @@ import com.dev.eventify.ui.themes.DARK_BLUE
 import com.dev.eventify.ui.themes.EventifyTheme
 import com.dev.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
 import com.dev.eventify.ui.themes.GRA_VER_BLACK_PURPLE
+import kotlinx.coroutines.launch
 
 @Composable
 fun RegisterProfessorScreenView(
@@ -65,6 +72,13 @@ fun RegisterProfessorScreenView(
     var password by remember { mutableStateOf("") }
     var confirmPassword by remember { mutableStateOf("") }
 
+    var nameErrorMessage by remember { mutableStateOf<String?>(null) }
+    var surnameErrorMessage by remember { mutableStateOf<String?>(null) }
+    var emailErrorMessage by remember { mutableStateOf<String?>(null) }
+    var passwordErrorMessage by remember { mutableStateOf<String?>(null) }
+    var confirmPasswordErrorMessage by remember { mutableStateOf<String?>(null) }
+
+    val scope = rememberCoroutineScope()
 
     Box(
         modifier = Modifier.fillMaxSize()
@@ -103,7 +117,12 @@ fun RegisterProfessorScreenView(
                     Icons.Rounded.Person,
                     KeyboardType.Text,
                     value = name,
-                    onValueChange = {name = it}
+                    onValueChange = {
+                        name = it
+                        nameErrorMessage = validateInput(it)
+                    },
+                    isError = nameErrorMessage != null,
+                    errorText = nameErrorMessage ?: ""
                 )
 
                 GradientTextField(
@@ -112,7 +131,12 @@ fun RegisterProfessorScreenView(
                     Icons.Rounded.PermIdentity,
                     KeyboardType.Text,
                     value = surname,
-                    onValueChange = { surname = it }
+                    onValueChange = {
+                        surname = it
+                        surnameErrorMessage = validateInput(it)
+                    },
+                    isError = surnameErrorMessage != null,
+                    errorText = surnameErrorMessage ?: ""
                 )
 
                 GradientTextField(
@@ -121,7 +145,12 @@ fun RegisterProfessorScreenView(
                     Icons.Rounded.Email,
                     KeyboardType.Email,
                     value = email,
-                    onValueChange = { email = it }
+                    onValueChange = {
+                        email = it
+                        emailErrorMessage = validateEmail(it)
+                    },
+                    isError = emailErrorMessage != null,
+                    errorText = emailErrorMessage ?: ""
                 )
 
                 GradientPasswordField(
@@ -129,7 +158,12 @@ fun RegisterProfessorScreenView(
                     stringResource(id = R.string.focused_password),
                     Icons.Rounded.Lock,
                     value = password,
-                    onValueChange = { password = it }
+                    onValueChange = {
+                        password = it
+                        passwordErrorMessage = validatePassword(it)
+                    },
+                    isError = passwordErrorMessage != null,
+                    errorText = passwordErrorMessage ?: ""
                 )
 
                 GradientPasswordField(
@@ -137,7 +171,12 @@ fun RegisterProfessorScreenView(
                     stringResource(id = R.string.focused_password_confirm),
                     Icons.Outlined.Lock,
                     value = confirmPassword,
-                    onValueChange = { confirmPassword = it }
+                    onValueChange = {
+                        confirmPassword = it
+                        confirmPasswordErrorMessage = validateConfirmPassword(it, password)
+                    },
+                    isError = confirmPasswordErrorMessage != null,
+                    errorText = confirmPasswordErrorMessage ?: ""
                 )
 
                 Column(
@@ -155,17 +194,34 @@ fun RegisterProfessorScreenView(
                     text = stringResource(id = R.string.action_register),
                     gradient = GRA_HOR_BLACK_PURPLE,
                     onClick = {
-                        val professor = Profesores(
-                            nombre = name,
-                            apellido = surname,
-                            email = email,
-                            password = password,
-                            imagen = null,
-                            descripcion = null
-                        )
-                        onSubmit(professor)
-                        Log.i(ContentValues.TAG, professor.toString())
-                        navigateToAuthenticatedRoute.invoke()
+                        if(
+                            nameErrorMessage == null
+                            && surnameErrorMessage == null
+                            && emailErrorMessage == null
+                            && passwordErrorMessage == null
+                            && confirmPasswordErrorMessage == null
+                            ) {
+                            val professor =
+                                Profesores(
+                                    nombre = name,
+                                    apellido = surname,
+                                    email = email,
+                                    password = password,
+                                    imagen = null,
+                                    descripcion = null,
+                                )
+
+                            scope.launch {
+                                postProfesor(professor) { result ->
+                                    if (result != null) {
+                                        onSubmit(result)
+                                        navigateToAuthenticatedRoute.invoke()
+                                    } else {
+                                        Log.e("Register", "Error registering professor")
+                                    }
+                                }
+                            }
+                        }
                     }
                 )
 

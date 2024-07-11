@@ -17,12 +17,15 @@ import retrofit2.http.Path
 
 interface EventifyApiService {
 
+//    ya hice
     @POST("api/estudiantes")
     suspend fun createEstudiantes(@Body estudiantes: Estudiantes): Estudiantes
-    @POST("api/GruposXpostXestudiantes")
-    suspend fun createGroupPublication(@Body groupPublication: GruposXpostXestudiantes): GruposXpostXestudiantes
     @POST("api/Profesores")
     suspend fun createProfesores(@Body profesores: Profesores): Profesores
+
+//    no pude
+    @POST("api/GruposXpostXestudiantes")
+    suspend fun createGroupPublication(@Body groupPublication: GruposXpostXestudiantes): GruposXpostXestudiantes
     @POST("api/posts")
     suspend fun  createPost(@Body post: Post ): Post
     @POST("api/facultadesXpostXprofesores")
@@ -35,18 +38,20 @@ interface EventifyApiService {
     @GET("api/Facultades")
     suspend fun getFacultad(): Facultades
     @GET("api/Facultades")
-    suspend fun getFacultades(): Call<List<Facultades>>
+    suspend fun getAllFacultades(): Call<List<Facultades>>
     @GET("api/Materia")
     suspend fun getMaterial(): Materia
     @GET("api/GruposXpostXestudiantes")
     suspend fun getGroupPublication(): GruposXpostXestudiantes
+
+//    remote
     @GET("api/facultadesXpostXprofesores")
     suspend fun getPublication(): FacultadesXpostsXprofesores
     @GET("api/facultadesXpostXprofesores/{id}")
     suspend fun getEspecificPublication(@Path("id") id: Int): FacultadesXpostsXprofesores
 }
 object EventifyService{
-    private const val baseUrl = "https://3c6c-201-227-106-208.ngrok-free.app"
+    private const val baseUrl = "http://127.0.0.1:4040"
     val instance: EventifyApiService by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)

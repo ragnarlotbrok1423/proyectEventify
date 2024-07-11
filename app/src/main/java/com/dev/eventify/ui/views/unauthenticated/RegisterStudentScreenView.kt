@@ -1,5 +1,6 @@
 package com.dev.eventify.ui.views.unauthenticated
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
@@ -25,9 +27,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dev.eventify.R
+import com.dev.eventify.data.validateConfirmPassword
+import com.dev.eventify.data.validateInput
+import com.dev.eventify.data.validatePassword
 import com.dev.eventify.entities.models.Estudiantes
 import com.dev.eventify.entities.models.getIndexOfFacultad
 import com.dev.eventify.entities.models.getListOfFacultades
+import com.dev.eventify.presenters.postEstudiante
 import com.dev.eventify.ui.components.ContextText
 import com.dev.eventify.ui.components.ExtraHugeSpace
 import com.dev.eventify.ui.components.FacultySelectTextField
@@ -50,6 +56,7 @@ import com.dev.eventify.ui.themes.EventifyTheme
 import com.dev.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
 import com.dev.eventify.ui.themes.GRA_VER_BLACK_PURPLE
 import com.dev.eventify.ui.viewModels.FacultadesViewModel
+import kotlinx.coroutines.launch
 
 @Composable
 fun RegisterStudentScreenView(
@@ -62,8 +69,15 @@ fun RegisterStudentScreenView(
     var password by remember { mutableStateOf("") }
     var confirmPassword by remember { mutableStateOf("") }
 
+    var nicknameErrorMessage by remember { mutableStateOf<String?>(null) }
+    var passwordErrorMessage by remember { mutableStateOf<String?>(null) }
+    var confirmPasswordErrorMessage by remember { mutableStateOf<String?>(null) }
+    var facultadesErrorMessage by remember { mutableStateOf<String?>(null) }
+
     val options = getListOfFacultades()
     var facultades by remember { mutableStateOf(options[0].nombreFacultad) }
+
+    val scope = rememberCoroutineScope()
 
     Box(
         modifier = Modifier.fillMaxSize()
@@ -100,22 +114,50 @@ fun RegisterStudentScreenView(
                     stringResource(id = R.string.focused_nickname),
                     Icons.Rounded.Person,
                     KeyboardType.Text,
+                    value = nickname,
+                    onValueChange = {
+                        nickname = it
+                        nicknameErrorMessage = validateInput(it)
+                    },
+                    isError = nicknameErrorMessage != null,
+                    errorText = nicknameErrorMessage ?: ""
                 )
 
                 GradientPasswordField(
                     stringResource(id = R.string.prompt_password),
                     stringResource(id = R.string.focused_password),
                     Icons.Rounded.Lock,
+                    value = password,
+                    onValueChange = {
+                        password = it
+                        passwordErrorMessage = validatePassword(it)
+                    },
+                    isError = passwordErrorMessage != null,
+                    errorText = passwordErrorMessage ?: ""
                 )
 
                 GradientPasswordField(
                     stringResource(id = R.string.prompt_password_confirm),
                     stringResource(id = R.string.focused_password_confirm),
                     Icons.Outlined.Lock,
+                    value = confirmPassword,
+                    onValueChange = {
+                        confirmPassword = it
+                        confirmPasswordErrorMessage = validateConfirmPassword(it, password)
+                    },
+                    isError = confirmPasswordErrorMessage != null,
+                    errorText = confirmPasswordErrorMessage ?: ""
                 )
 
                 FacultySelectTextField(
                     label = stringResource(id = R.string.prompt_faculty),
+                    value = facultades,
+                    onValueChange = {
+                        facultades = it
+                        facultadesErrorMessage = validateInput(it)
+                    },
+                    isError = facultadesErrorMessage != null,
+                    errorText = facultadesErrorMessage ?: ""
                     )
 
                 Column(
@@ -133,17 +175,32 @@ fun RegisterStudentScreenView(
                     text = stringResource(id = R.string.action_register),
                     gradient = GRA_HOR_BLACK_PURPLE,
                     onClick = {
-                        val facultadesId = getIndexOfFacultad(facultades)
+                        if(
+                            nicknameErrorMessage == null &&
+                            passwordErrorMessage == null &&
+                            confirmPasswordErrorMessage == null &&
+                            facultadesErrorMessage == null
+                        ) {
+                            val facultadesId = getIndexOfFacultad(facultades)
 
-                        val students = Estudiantes(
-                            nickname = nickname,
-                            password = password,
-                            imagen = null,
-                            descripcion = null,
-                            facultadesId = facultadesId
-                        )
-                        onSubmit(students)
-                        navigateToAuthenticatedRoute.invoke()
+                            val students = Estudiantes(
+                                nickname = nickname,
+                                password = password,
+                                imagen = null,
+                                descripcion = null,
+                                facultadesId = facultadesId
+                            )
+                            scope.launch {
+                                postEstudiante(students) { result ->
+                                    if (result != null) {
+                                        onSubmit(result)
+                                        navigateToAuthenticatedRoute.invoke()
+                                    } else {
+                                        Log.e("Register", "Error registering student")
+                                    }
+                                }
+                            }
+                        }
                     }
                 )
 

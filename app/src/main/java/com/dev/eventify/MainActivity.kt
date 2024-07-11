@@ -19,8 +19,6 @@ class MainActivity : AppCompatActivity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, true)
 
-        //        inicia el servicio
-//        EventifyApiService.instance()
 
         // se muestra despues de splashscreen
         setContent{

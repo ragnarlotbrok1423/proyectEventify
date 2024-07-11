@@ -7,6 +7,9 @@ import androidx.lifecycle.viewModelScope
 import com.dev.eventify.entities.apiService.EventifyService
 import com.dev.eventify.entities.models.Facultades
 import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class FacultadesViewModel: ViewModel() {
 
@@ -27,5 +30,7 @@ class FacultadesViewModel: ViewModel() {
             }
         }
     }
+
+//    EventifyService.instance.
 
 }

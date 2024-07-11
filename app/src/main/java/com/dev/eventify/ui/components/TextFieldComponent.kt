@@ -22,9 +22,11 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -37,10 +39,13 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dev.eventify.R
+import com.dev.eventify.entities.models.Facultades
 import com.dev.eventify.entities.models.getListOfFacultades
+import com.dev.eventify.presenters.fetchFacultades
 import com.dev.eventify.ui.themes.EventifyTheme
 import com.dev.eventify.ui.themes.LIGHT_PURPLE
 import com.dev.eventify.ui.viewModels.FacultadesViewModel
+import kotlinx.coroutines.launch
 
 ////////////////////
 //TextField
@@ -256,29 +261,17 @@ fun GradientPhoneTextField(
 @Composable
 fun FacultySelectTextField(
     label: String,
-    facultadesViewModel: FacultadesViewModel = viewModel(),
     value: String = "",
     onValueChange: (String) -> Unit = {},
+    isError: Boolean = false,
+    errorText: String = "",
 ){
 
     var expanded by remember { mutableStateOf(false) }
 
     // si lista en kotlin
     val options = getListOfFacultades()
-    var selectedOptionText by remember { mutableStateOf(options[0].nombreFacultad) }
-
-    // si lista en get
-//    val options by facultadesViewModel.facultades.observeAsState(emptyList())
-//    var selectedOptionText by remember { mutableStateOf("") }
-
-//    var options by remember { mutableStateOf(listOf<Facultades>()) }
-//    var selectedOptionText by remember { mutableStateOf("") }
-
-//    LaunchedEffect(Unit) {
-//        fetchFacultades { fetchedFacultades ->
-//            options = fetchedFacultades
-//        }
-//    }
+    var optionText = value
 
     ExposedDropdownMenuBox(
         expanded = expanded,
@@ -289,8 +282,9 @@ fun FacultySelectTextField(
         ) {
          OutlinedTextField(
             readOnly = true,
-            value = selectedOptionText,
-            onValueChange = { selectedOptionText = it },
+//             value = selectedFacultad?.nombreFacultad ?: "",
+             value = optionText,
+            onValueChange =  onValueChange ,
             label = { Text(label) },
             trailingIcon = {
                 ExposedDropdownMenuDefaults.TrailingIcon(
@@ -316,11 +310,20 @@ fun FacultySelectTextField(
                 DropdownMenuItem(
                     text = { Text(text = selectionOption.nombreFacultad) },
                     onClick = {
-                        selectedOptionText = selectionOption.nombreFacultad
+                        optionText = selectionOption.nombreFacultad
                         expanded = false
                     },
                 )
             }
+//            facultadesList.forEach { facultades ->
+//                DropdownMenuItem(
+//                    text = { Text(text = facultades.nombreFacultad) },
+//                    onClick = {
+//                        selectedFacultad = facultades
+//                        expanded = false
+//                    },
+//                )
+//            }
         }
     }
 }
