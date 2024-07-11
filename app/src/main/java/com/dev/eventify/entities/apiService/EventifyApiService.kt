@@ -18,6 +18,9 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
+import retrofit2.http.PUT
+import retrofit2.http.Multipart
+import retrofit2.http.Part
 
 interface EventifyApiService {
     @POST("api/posts")
@@ -61,6 +64,17 @@ interface EventifyApiService {
 
     @GET("api/Materias")
     suspend fun getMaterias():Response<List<Materias>>
+
+    @GET("api/profesor/{id}")
+    suspend fun getProfesor(@Path("id") profesorId: String): Response<ProfesoresResponse>
+
+    @PUT("api/profesor")
+    suspend fun updateProfesor(@Body profesor: Profesores): Response<Void>
+
+    @Multipart
+    @POST("api/profesor/upload")
+    suspend fun uploadProfilePicture(@Part imagen: String?): Response<String>
+
 }
 object EventifyService{
     private const val baseUrl = "https://eventify.com/"
