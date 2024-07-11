@@ -42,4 +42,5 @@
 
     <dimen name="icon_button">50dp</dimen>
     <dimen name="icon_border">2dp</dimen>
+    <dimen name="icon_onboard">250dp</dimen>
 </resources>

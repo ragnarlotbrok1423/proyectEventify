@@ -2,10 +2,12 @@
     <string name="app_name">Eventify</string>
 
     <!-- Titles   -->
-    <string name="title_activity_login">Welcome Back!</string>
+    <string name="title_activity_login_welcome">Welcome Back!</string>
+    <string name="title_activity_login">Login</string>
     <string name="title_activity_register">Register</string>
     <string name="title_activity_register_student">Student Sign Up</string>
     <string name="title_activity_register_professor">Professor Sign Up</string>
+    <string name="title_activity_selection">Which are you?</string>
 
     <!-- Prompts -->
     <string name="prompt_nickname">Username</string>
@@ -35,6 +37,9 @@
     <string name="action_login">Sign In</string>
     <string name="action_register">Sign Up</string>
     <string name="action_anonymous">Anonymous</string>
+    <string name="action_professor">Professor</string>
+    <string name="action_students">Student</string>
+
 
     <!-- Error prompt -->
     <string name="error_invalid_email_nickname">Email or nickname does not exist</string>
@@ -56,6 +61,7 @@
     <string name="onboard_screen_text">Want to check our college social events? Join us!</string>
     <string name="login_text">Login to your account</string>
     <string name="register_text">Create a new account</string>
+    <string name="selection_text">Do not fake your identity</string>
     <string name="forgot_password">Forgot password</string>
     <string name="term_condition">By registering you agree to the terms and conditions</string>
     <string name="to_register_text">New to the app?</string>

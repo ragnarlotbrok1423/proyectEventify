@@ -6,7 +6,10 @@ sealed class NavigationRoutes {
         object DestinationRoute : Unauthenticated(route = "unauthenticated")
         object Onboarding: Unauthenticated(route = "onboarding")
         object Login : Unauthenticated(route = "login")
-        object Register : Unauthenticated(route = "register")
+        object RegisterProfessor : Unauthenticated(route = "register_professor")
+        object RegisterStudent : Unauthenticated(route = "register_student")
+        object Selection : Unauthenticated(route = "selection")
+
 
     }
 

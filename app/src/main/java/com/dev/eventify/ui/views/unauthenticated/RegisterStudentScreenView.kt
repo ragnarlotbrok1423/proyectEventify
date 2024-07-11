@@ -10,11 +10,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Lock
-import androidx.compose.material.icons.rounded.Email
 import androidx.compose.material.icons.rounded.Lock
 import androidx.compose.material.icons.rounded.Person
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -27,14 +25,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dev.eventify.R
-import com.dev.eventify.data.state.register.RegisterUiEvent
+import com.dev.eventify.entities.models.Estudiantes
+import com.dev.eventify.entities.models.getIndexOfFacultad
+import com.dev.eventify.entities.models.getListOfFacultades
 import com.dev.eventify.ui.components.ContextText
 import com.dev.eventify.ui.components.ExtraHugeSpace
 import com.dev.eventify.ui.components.FacultySelectTextField
 import com.dev.eventify.ui.components.GapColumn
 import com.dev.eventify.ui.components.GradientButton
 import com.dev.eventify.ui.components.GradientPasswordField
-import com.dev.eventify.ui.components.GradientPhoneTextField
 import com.dev.eventify.ui.components.GradientTextField
 import com.dev.eventify.ui.components.GradientTitleText
 import com.dev.eventify.ui.components.HugeSpace
@@ -50,28 +49,31 @@ import com.dev.eventify.ui.themes.DARK_BLUE
 import com.dev.eventify.ui.themes.EventifyTheme
 import com.dev.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
 import com.dev.eventify.ui.themes.GRA_VER_BLACK_PURPLE
-import com.dev.eventify.ui.viewModels.unauthenticated.RegisterViewModel
+import com.dev.eventify.ui.viewModels.FacultadesViewModel
 
 @Composable
 fun RegisterStudentScreenView(
     navigateToLogin: () -> Unit,
     navigateToAuthenticatedRoute: () -> Unit,
     navigateBack: () -> Unit,
+    onSubmit: (Estudiantes) -> Unit,
 ){
-    var nombre by remember { mutableStateOf("") }
-    var apellido by remember { mutableStateOf("") }
-    var email by remember { mutableStateOf("") }
+    var nickname by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    var confirmPassword by remember { mutableStateOf("") }
+
+    val options = getListOfFacultades()
+    var facultades by remember { mutableStateOf(options[0].nombreFacultad) }
 
     Box(
         modifier = Modifier.fillMaxSize()
     ){
-        TopStartColumn {
-            IconBackButton(onClick = { navigateBack.invoke() },
-                color = DARK_BLUE)
-        }
 
         ScrollableColumn {
+            TopStartColumn {
+                IconBackButton(onClick = { navigateBack.invoke() },
+                    color = DARK_BLUE)
+            }
 
             GapColumn(
                 modifier = Modifier
@@ -83,7 +85,7 @@ fun RegisterStudentScreenView(
                 ExtraHugeSpace()
 
                 GradientTitleText(
-                    text = stringResource(id = R.string.action_register),
+                    text = stringResource(id = R.string.title_activity_register_student),
                     gradient = GRA_VER_BLACK_PURPLE,
                 )
 
@@ -100,13 +102,6 @@ fun RegisterStudentScreenView(
                     KeyboardType.Text,
                 )
 
-                GradientTextField(
-                    stringResource(id = R.string.prompt_email),
-                    stringResource(id = R.string.focused_email),
-                    Icons.Rounded.Email,
-                    KeyboardType.Email,
-                )
-
                 GradientPasswordField(
                     stringResource(id = R.string.prompt_password),
                     stringResource(id = R.string.focused_password),
@@ -119,21 +114,9 @@ fun RegisterStudentScreenView(
                     Icons.Outlined.Lock,
                 )
 
-                GradientPhoneTextField()
-
                 FacultySelectTextField(
                     label = stringResource(id = R.string.prompt_faculty),
                     )
-//                    RegisterStudentInput(
-//                        registrationState = registrationState,
-//                        onNicknameChange = ,
-//                        onEmailChange =,
-//                        onPasswordChange = ,
-//                        onConfirmPasswordChange = ,
-//                        onMobileNumberChange = ,
-//                    ) {
-////
-//                    }
 
                 Column(
                     modifier = Modifier.width(dimensionResource(id = R.dimen.container_width)),
@@ -150,9 +133,16 @@ fun RegisterStudentScreenView(
                     text = stringResource(id = R.string.action_register),
                     gradient = GRA_HOR_BLACK_PURPLE,
                     onClick = {
-//                        val listStudents = registerViewModel.onRegisterUiEvent(registerUiEvent = RegisterUiEvent.Submit)
-//                        println( listStudents.toString())
-//                            if(registerState.value)
+                        val facultadesId = getIndexOfFacultad(facultades)
+
+                        val students = Estudiantes(
+                            nickname = nickname,
+                            password = password,
+                            imagen = null,
+                            descripcion = null,
+                            facultadesId = facultadesId
+                        )
+                        onSubmit(students)
                         navigateToAuthenticatedRoute.invoke()
                     }
                 )
@@ -186,6 +176,7 @@ fun RegisterStudentScreenView(
     }
 }
 
+
 @Preview
 @Composable
 fun RegisterStudentPreview(){
@@ -194,6 +185,9 @@ fun RegisterStudentPreview(){
             navigateBack = {},
             navigateToLogin = {},
             navigateToAuthenticatedRoute = {}
-        )
+        ){
+
+        }
     }
 }
+

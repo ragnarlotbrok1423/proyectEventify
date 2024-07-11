@@ -22,7 +22,9 @@ import androidx.compose.ui.graphics.Brush
 import com.dev.eventify.R
 
 @Composable
-fun UserProfileView() {
+fun UserProfileView(
+    navigateBack: () -> Unit,
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -134,5 +136,5 @@ fun CommunityItem(index: Int) {
 @Preview
 @Composable
 fun UserProfilePreview() {
-    UserProfileView()
+    UserProfileView(){}
 }

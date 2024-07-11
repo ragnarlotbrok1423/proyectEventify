@@ -26,6 +26,7 @@ fun GradientTitleText(text: String, gradient: Brush){
         style = TextStyle(gradient),
         fontSize = MaterialTheme.typography.displayMedium.fontSize,
         fontFamily = MaterialTheme.typography.displayMedium.fontFamily,
+        textAlign = TextAlign.Center
         )
 }
 
@@ -34,6 +35,7 @@ fun SubTitleText(text: String){
     Text(text = text,
         color = md_theme_light_onPrimaryContainer,
         style = MaterialTheme.typography.titleLarge,
+        textAlign = TextAlign.Center
         )
 }
 

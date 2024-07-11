@@ -1,5 +1,6 @@
 package com.dev.eventify.ui.views.unauthenticated
 
+import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
@@ -17,7 +18,6 @@ import androidx.compose.material.icons.rounded.Lock
 import androidx.compose.material.icons.rounded.PermIdentity
 import androidx.compose.material.icons.rounded.Person
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -28,17 +28,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dev.eventify.R
-import com.dev.eventify.data.state.register.RegisterUiEvent
 import com.dev.eventify.entities.models.Profesores
 import com.dev.eventify.ui.components.ContextText
 import com.dev.eventify.ui.components.ExtraHugeSpace
-import com.dev.eventify.ui.components.FacultySelectTextField
 import com.dev.eventify.ui.components.GapColumn
 import com.dev.eventify.ui.components.GradientButton
 import com.dev.eventify.ui.components.GradientPasswordField
-import com.dev.eventify.ui.components.GradientPhoneTextField
 import com.dev.eventify.ui.components.GradientTextField
 import com.dev.eventify.ui.components.GradientTitleText
 import com.dev.eventify.ui.components.HugeSpace
@@ -54,7 +50,6 @@ import com.dev.eventify.ui.themes.DARK_BLUE
 import com.dev.eventify.ui.themes.EventifyTheme
 import com.dev.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
 import com.dev.eventify.ui.themes.GRA_VER_BLACK_PURPLE
-import com.dev.eventify.ui.viewModels.unauthenticated.RegisterViewModel
 
 @Composable
 fun RegisterProfessorScreenView(
@@ -74,13 +69,13 @@ fun RegisterProfessorScreenView(
     Box(
         modifier = Modifier.fillMaxSize()
     ){
-        TopStartColumn {
-            IconBackButton(onClick = { navigateBack.invoke() },
-                color = DARK_BLUE
-            )
-        }
 
         ScrollableColumn {
+            TopStartColumn {
+                IconBackButton(onClick = { navigateBack.invoke() },
+                    color = DARK_BLUE
+                )
+            }
 
             GapColumn(
                 modifier = Modifier
@@ -169,6 +164,7 @@ fun RegisterProfessorScreenView(
                             descripcion = null
                         )
                         onSubmit(professor)
+                        Log.i(ContentValues.TAG, professor.toString())
                         navigateToAuthenticatedRoute.invoke()
                     }
                 )

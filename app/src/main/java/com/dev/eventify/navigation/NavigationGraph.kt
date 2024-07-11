@@ -1,5 +1,7 @@
 package com.dev.eventify.navigation
 
+import android.content.ContentValues
+import android.util.Log
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -8,6 +10,8 @@ import com.dev.eventify.ui.views.authenticated.UserProfileView
 import com.dev.eventify.ui.views.unauthenticated.LoginScreenView
 import com.dev.eventify.ui.views.unauthenticated.OnboardingScreenView
 import com.dev.eventify.ui.views.unauthenticated.RegisterProfessorScreenView
+import com.dev.eventify.ui.views.unauthenticated.RegisterStudentScreenView
+import com.dev.eventify.ui.views.unauthenticated.SelectionScreenView
 
 /**
  * viajar en Login, registration, forgot password
@@ -29,7 +33,7 @@ fun NavGraphBuilder.unauthenticatedGraph(navController: NavController){
                 },
 
                 navigateToRegistration = {
-                    navController.navigate(route = NavigationRoutes.Unauthenticated.Register.route)
+                    navController.navigate(route = NavigationRoutes.Unauthenticated.Selection.route)
                 },
 
                 navigateToAuthenticatedRoute = {
@@ -47,7 +51,7 @@ fun NavGraphBuilder.unauthenticatedGraph(navController: NavController){
             LoginScreenView(
 
                 navigateToRegistration = {
-                    navController.navigate(route = NavigationRoutes.Unauthenticated.Register.route)
+                    navController.navigate(route = NavigationRoutes.Unauthenticated.Selection.route)
                 },
 
                 navigateToForgotPassword = {},
@@ -67,8 +71,25 @@ fun NavGraphBuilder.unauthenticatedGraph(navController: NavController){
             )
         }
 
-        // register
-        composable(route = NavigationRoutes.Unauthenticated.Register.route) {
+        // register selection
+        composable(route = NavigationRoutes.Unauthenticated.Selection.route) {
+            SelectionScreenView(
+                navigateToRegisterProfessor = {
+                    navController.navigate(route = NavigationRoutes.Unauthenticated.RegisterProfessor.route)
+                },
+
+                navigateToRegisterStudent = {
+                    navController.navigate(route = NavigationRoutes.Unauthenticated.RegisterStudent.route)
+                },
+
+                navigateBack = {
+                    navController.navigateUp()
+                },
+            )
+        }
+
+        // register professor
+        composable(route = NavigationRoutes.Unauthenticated.RegisterProfessor.route) {
             RegisterProfessorScreenView(
 
                 navigateToLogin = {
@@ -87,6 +108,39 @@ fun NavGraphBuilder.unauthenticatedGraph(navController: NavController){
                     navController.navigateUp()
                 },
 
+                onSubmit = {
+                        professor ->
+                    Log.i(ContentValues.TAG, professor.toString())
+                }
+
+            )
+        }
+
+        // register students
+        composable(route = NavigationRoutes.Unauthenticated.RegisterStudent.route) {
+            RegisterStudentScreenView(
+
+                navigateToLogin = {
+                    navController.navigate(route = NavigationRoutes.Unauthenticated.Login.route)
+                },
+
+                navigateToAuthenticatedRoute = {
+                    navController.navigate(route = NavigationRoutes.Unauthenticated.Login.route){
+                        popUpTo(route = NavigationRoutes.Unauthenticated.DestinationRoute.route){
+                            inclusive = true
+                        }
+                    }
+                },
+
+                navigateBack = {
+                    navController.navigateUp()
+                },
+
+                onSubmit = {
+                        students ->
+                    Log.i(ContentValues.TAG, students.toString())
+                }
+
             )
         }
     }
@@ -103,9 +157,9 @@ fun NavGraphBuilder.authenticatedGraph(navController: NavController){
     ){
         composable(route = NavigationRoutes.Authenticated.UserProfile.route){
             UserProfileView(
-//                navigateBack = {
-//                    navController.navigateUp()
-//                },
+                navigateBack = {
+                    navController.navigateUp()
+                },
             )
         }
     }

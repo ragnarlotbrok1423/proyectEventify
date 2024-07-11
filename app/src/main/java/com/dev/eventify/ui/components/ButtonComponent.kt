@@ -32,6 +32,7 @@ import com.dev.eventify.R
 import com.dev.eventify.ui.themes.EventifyTheme
 import com.dev.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
 import com.dev.eventify.ui.themes.md_theme_light_onPrimary
+import com.dev.eventify.ui.themes.md_theme_light_primary
 
 
 ////////////////////
@@ -111,6 +112,20 @@ fun IconBackButton(onClick: () -> Unit, color: Color){
     }
 
 
+}
+
+@Composable
+fun SimpleButton(onClick: () -> Unit, text: String, color: Color){
+    Button(
+        onClick = onClick,
+        colors = ButtonDefaults.buttonColors(
+            containerColor = color,
+            contentColor = md_theme_light_onPrimary),
+        modifier = Modifier.padding(horizontal = dimensionResource(id = R.dimen.padding_small)),
+    ) {
+        ButtonText(text = text,
+        )
+    }
 }
 
 @Preview

@@ -1,82 +1,124 @@
 package com.dev.eventify.ui.views.unauthenticated
 
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.dev.eventify.R
+import com.dev.eventify.ui.components.ExtraHugeSpace
 import com.dev.eventify.ui.components.GapColumn
+import com.dev.eventify.ui.components.GapRow
+import com.dev.eventify.ui.components.GradientTitleText
+import com.dev.eventify.ui.components.HugeSpace
+import com.dev.eventify.ui.components.IconBackButton
 import com.dev.eventify.ui.components.ImageFit
+import com.dev.eventify.ui.components.MediumSpace
 import com.dev.eventify.ui.components.ScrollableColumn
+import com.dev.eventify.ui.components.SimpleButton
+import com.dev.eventify.ui.components.SubTitleText
+import com.dev.eventify.ui.components.TopStartColumn
+import com.dev.eventify.ui.themes.DARK_BLUE
+import com.dev.eventify.ui.themes.GRA_HOR_BLUE_PURPLE
+import com.dev.eventify.ui.themes.md_theme_light_primary
+import com.dev.eventify.ui.themes.md_theme_light_tertiary
 
 @Composable
-fun SelectionScreen() {
+fun SelectionScreenView(
+    navigateToRegisterProfessor: () -> Unit,
+    navigateToRegisterStudent: () -> Unit,
+    navigateBack: () -> Unit,
+) {
     var selectedRole by remember { mutableStateOf("") }
 
-    ScrollableColumn {
-        GapColumn(
+    Box(
         modifier = Modifier
-            .padding(vertical = dimensionResource(id = R.dimen.padding_none),
-                horizontal = dimensionResource(id = R.dimen.padding_medium),
-            )
+            .fillMaxSize(),
     ) {
-            ImageFit(
-                R.drawable.learning, // Replace with your actual image resource
-                modifier = Modifier.size(150.dp),
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-            Text(
-                text = "Keep",
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.Black,
-                textAlign = TextAlign.Center,
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = "Keep various ways to contact and get in touch easily right from the app",
-                fontSize = 16.sp,
-                color = Color.Gray,
-                textAlign = TextAlign.Center,
-            )
-            Spacer(modifier = Modifier.height(32.dp))
-            RoleSelectionButton(role = "Student", selectedRole) { selectedRole = it }
-            Spacer(modifier = Modifier.height(16.dp))
-            RoleSelectionButton(role = "Professor", selectedRole) { selectedRole = it }
-            Spacer(modifier = Modifier.height(32.dp))
-            Button(
-                onClick = { /* Handle Start button click */ },
-                colors = ButtonDefaults.buttonColors(backgroundColor = Color.Red),
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text(text = "Let's start", color = Color.White)
+        ScrollableColumn {
+            TopStartColumn {
+                IconBackButton(onClick = { navigateBack.invoke() },
+                    color = DARK_BLUE)
             }
-            Spacer(modifier = Modifier.height(8.dp))
-            Button(
-                onClick = { /* Handle Login button click */ },
-                colors = ButtonDefaults.buttonColors(backgroundColor = Color.Gray),
-                modifier = Modifier.fillMaxWidth(),
+
+            GapColumn(
+                modifier =
+                    Modifier
+                        .padding(
+                            vertical = dimensionResource(id = R.dimen.padding_none),
+                            horizontal = dimensionResource(id = R.dimen.padding_medium),
+                        ),
             ) {
-                Text(text = "Log in", color = Color.White)
+
+                ExtraHugeSpace()
+
+                ImageFit(
+                    R.drawable.learning_sheep, // Replace with your actual image resource
+                    dimensionResource(id = R.dimen.icon_onboard),
+                )
+
+                MediumSpace()
+
+                GradientTitleText(
+                    text = stringResource(R.string.title_activity_selection),
+                    gradient = GRA_HOR_BLUE_PURPLE,
+                )
+
+                SubTitleText(text = stringResource(R.string.selection_text))
+
+                ExtraHugeSpace()
+
             }
+            GapRow {
+                SimpleButton(
+                    text = stringResource(id = R.string.action_professor),
+                    color = md_theme_light_primary,
+                    onClick = {
+                        navigateToRegisterProfessor.invoke()
+                    },
+                )
+
+                SimpleButton(
+                    text = stringResource(id = R.string.action_students),
+                    color = md_theme_light_tertiary,
+                    onClick = {
+                        navigateToRegisterStudent.invoke()
+                    },
+                )
+            }
+
+            HugeSpace()
         }
     }
 }
 
+//@Composable
+//fun RoleSelectionButton(role: String, selectedRole: String, onRoleSelected: (String) -> Unit) {
+//    Button(
+//        onClick = { onRoleSelected(role) },
+//        colors = ButtonDefaults.buttonColors(
+//            backgroundColor = if (selectedRole == role) Color.Blue else Color.LightGray
+//        ),
+//        modifier = Modifier.fillMaxWidth()
+//    ) {
+//        Text(text = role, color = Color.White)
+//    }
+//}
+
+@Preview
 @Composable
-fun RoleSelectionButton(role: String, selectedRole: String, onRoleSelected: (String) -> Unit) {
-    Button(
-        onClick = { onRoleSelected(role) },
-        colors = ButtonDefaults.buttonColors(
-            backgroundColor = if (selectedRole == role) Color.Blue else Color.LightGray
-        ),
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Text(text = role, color = Color.White)
-    }
+fun SelectionScreenPreview(){
+    SelectionScreenView(
+        navigateToRegisterProfessor = { },
+        navigateToRegisterStudent = { },
+        navigateBack = {}
+    )
 }

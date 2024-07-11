@@ -33,3 +33,8 @@ fun getListOfFacultades(): List<Facultades> {
         )
     )
 }
+
+fun getIndexOfFacultad(nombreFacultad: String): Int {
+    val facultadesList = getListOfFacultades()
+    return facultadesList.indexOfFirst { it.nombreFacultad == nombreFacultad }
+}

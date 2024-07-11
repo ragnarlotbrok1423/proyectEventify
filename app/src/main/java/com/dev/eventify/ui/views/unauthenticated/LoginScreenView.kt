@@ -82,7 +82,7 @@ fun LoginScreenView(
                             )
                 ) {
                     GradientTitleText(
-                        text = stringResource(id = R.string.title_activity_login),
+                        text = stringResource(id = R.string.title_activity_login_welcome),
                         gradient = GRA_VER_BLACK_PURPLE,
                     )
 
