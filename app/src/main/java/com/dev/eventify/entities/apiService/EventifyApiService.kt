@@ -26,17 +26,17 @@ interface EventifyApiService {
     suspend fun createPublication(@Body publication: FacultadesXpostsXprofesores ): FacultadesXpostsXprofesores
     @GET("api/facultadesXpostXprofesores")
     suspend fun getPublication(): FacultadesXpostsXprofesores
-    @GET("api/estudiantes/{id})")
-    suspend fun getEstudiante (@Path ("id")id: Int):Estudiantes
+
     @GET("api/facultadesXpostXprofesores/{id}")
     suspend fun getEspecificPublication (@Path("id") id: Int): FacultadesXpostsXprofesores
     @POST("api/estudiantes")
-    suspend fun createStudent(@Query("nickName")nickName:String,
-                              @Query("password") password:String,
-                              @Query("imagen") imagen:String?,
-                              @Query("descripcion") descripcion:String?,
-                              @Query("rol") rol:Int,
-                              @Query("facultadesId") facultadesId:Int
+    suspend fun createStudent(
+        @Query("nickName")nickName:String,
+        @Query("password") password:String,
+        @Query("imagen") imagen:String?,
+        @Query("descripcion") descripcion:String?,
+        @Query("rol") rol:Int,
+        @Query("facultadesId") facultadesId:Int
     ): Response<Void>
     @GET("api/estudiantes")
     suspend fun getEstudiantes():Estudiantes
@@ -54,6 +54,10 @@ interface EventifyApiService {
     ):Response<Void>
     @GET("api/Facultades")
     suspend fun  getFacultades():Response<List<Facultades>>
+    @GET("api/estudiantes")
+    suspend fun getEstudentLogin():Response<List<Estudiantes>>
+    @GET("api/profesores")
+    suspend fun getProfesorsLogin():Response<List<Profesores>>
 
     @GET("api/Materias")
     suspend fun getMaterias():Response<List<Materias>>
