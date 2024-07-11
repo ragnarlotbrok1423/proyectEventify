@@ -9,6 +9,7 @@ import com.dev.eventify.entities.models.Post
 import com.dev.eventify.entities.models.PostResponse
 import com.dev.eventify.entities.models.Profesores
 import com.dev.eventify.entities.models.ProfesoresResponse
+import com.dev.eventify.entities.models.Group
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -23,8 +24,7 @@ import retrofit2.http.Multipart
 import retrofit2.http.Part
 
 interface EventifyApiService {
-    @POST("api/posts")
-    suspend fun  createPost(@Body post: Post ): Post
+
     @POST("api/facultadesXpostXprofesores")
     suspend fun createPublication(@Body publication: FacultadesXpostsXprofesores ): FacultadesXpostsXprofesores
     @GET("api/facultadesXpostXprofesores")
@@ -74,6 +74,11 @@ interface EventifyApiService {
     @Multipart
     @POST("api/profesor/upload")
     suspend fun uploadProfilePicture(@Part imagen: String?): Response<String>
+
+    @POST("api/groups")
+    suspend fun createGroup(@Body group: Group): Response<Group>
+    @POST("api/posts")
+    suspend fun createPost(@Body post: Post): Response<Post>
 
 }
 object EventifyService{
