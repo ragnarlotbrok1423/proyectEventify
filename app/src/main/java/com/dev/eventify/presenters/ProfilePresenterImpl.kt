@@ -3,13 +3,13 @@ package com.dev.eventify.presenters
 import com.dev.eventify.entities.SetControlProf
 import com.dev.eventify.interactors.ProfesorInteractor
 import com.dev.eventify.entities.models.Profesores
-import com.dev.eventify.views.ProfileView
+import com.dev.eventify.views.ProfileViewTest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ProfilePresenterImpl(
-    private val view: ProfileView,
+    private val view: ProfileViewTest,
     private val interactor: ProfesorInteractor
 ) : SetControlProf {
 
