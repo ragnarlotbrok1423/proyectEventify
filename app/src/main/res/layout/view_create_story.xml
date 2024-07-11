@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <include
+        android:id="@+id/headerLayout"
+        layout="@layout/header_upload_story"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/myImageView"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="84dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/conitos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/addTextLayout"
+        layout="@layout/story_comment"
+        app:layout_constraintTop_toBottomOf="@id/myImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <include
+        android:id="@+id/addCommunityLayout"
+        layout="@layout/add_community_story"
+        app:layout_constraintTop_toBottomOf="@id/addTextLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <include
+        android:id="@+id/groupPhotosUpload"
+        layout="@layout/group_photos_upload"
+        app:layout_constraintTop_toBottomOf="@id/addCommunityLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <include
+        android:id="@+id/groupPhotosUpload"
+        layout="@layout/group_photos_upload"
+        app:layout_constraintTop_toBottomOf="@id/groupPhotosUpload"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

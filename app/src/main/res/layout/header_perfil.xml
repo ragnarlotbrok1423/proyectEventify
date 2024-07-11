@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:background="@drawable/border"
+    android:padding="16dp">
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="28dp"
+        android:layout_height="26dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:background="@android:color/transparent"
+        android:contentDescription="Regresar"
+        android:foreground="@android:drawable/arrow_up_float"
+        android:rotation="-90" />
+
+    <TextView
+        android:id="@+id/textViewComments"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toStartOf="@id/profile_image2"
+        android:layout_toEndOf="@id/imageButton"
+        android:text="Perfil"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <ImageButton
+        android:id="@+id/profile_image2"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="perfil"
+        android:layout_centerVertical="true"
+        android:foreground="@drawable/perfil" />
+</RelativeLayout>
