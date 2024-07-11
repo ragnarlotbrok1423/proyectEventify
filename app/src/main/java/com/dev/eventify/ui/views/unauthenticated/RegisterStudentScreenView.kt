@@ -25,7 +25,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dev.eventify.R
 import com.dev.eventify.data.validateConfirmPassword
 import com.dev.eventify.data.validateInput
@@ -35,7 +34,6 @@ import com.dev.eventify.entities.models.getIndexOfFacultad
 import com.dev.eventify.entities.models.getListOfFacultades
 import com.dev.eventify.presenters.postEstudiante
 import com.dev.eventify.ui.components.ContextText
-import com.dev.eventify.ui.components.ExtraHugeSpace
 import com.dev.eventify.ui.components.FacultySelectTextField
 import com.dev.eventify.ui.components.GapColumn
 import com.dev.eventify.ui.components.GradientButton
@@ -55,7 +53,6 @@ import com.dev.eventify.ui.themes.DARK_BLUE
 import com.dev.eventify.ui.themes.EventifyTheme
 import com.dev.eventify.ui.themes.GRA_HOR_BLACK_PURPLE
 import com.dev.eventify.ui.themes.GRA_VER_BLACK_PURPLE
-import com.dev.eventify.ui.viewModels.FacultadesViewModel
 import kotlinx.coroutines.launch
 
 @Composable
@@ -96,7 +93,7 @@ fun RegisterStudentScreenView(
                     )
             ) {
 
-                ExtraHugeSpace()
+                HugeSpace()
 
                 GradientTitleText(
                     text = stringResource(id = R.string.title_activity_register_student),

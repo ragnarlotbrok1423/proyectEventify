@@ -1,6 +1,5 @@
 package com.dev.eventify.ui.views.unauthenticated
 
-import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
@@ -37,7 +36,6 @@ import com.dev.eventify.data.validatePassword
 import com.dev.eventify.entities.models.Profesores
 import com.dev.eventify.presenters.postProfesor
 import com.dev.eventify.ui.components.ContextText
-import com.dev.eventify.ui.components.ExtraHugeSpace
 import com.dev.eventify.ui.components.GapColumn
 import com.dev.eventify.ui.components.GradientButton
 import com.dev.eventify.ui.components.GradientPasswordField
@@ -98,7 +96,7 @@ fun RegisterProfessorScreenView(
                     )
             ) {
 
-                ExtraHugeSpace()
+                HugeSpace()
 
                 GradientTitleText(
                     text = stringResource(id = R.string.title_activity_register_professor),
